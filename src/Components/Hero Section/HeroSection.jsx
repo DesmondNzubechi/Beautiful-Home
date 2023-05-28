@@ -3,7 +3,7 @@ import heroImg from '../../assets/images/heroImage/heroimg2.avif';
 import { NavLink } from "react-router-dom";
 export const HeroSection = () => {
     return(
-        <div className="pt-[150px] flex flex-row justify-center px-[30px] pb-[50px] bg-slate-50 lg:min-h-[100vh] ">
+        <div className="pt-[150px] shadow flex rounded-b-[50px] flex-row justify-center px-[30px] pb-[100px] bg-slate-50 lg:min-h-[100vh] ">
             <div className="flex flex-col md:flex-row items-center gap-[50px] justify-around">
                 <div className="flex flex-col gap-5 w-[400px] md:max-w-[700px]">
                     <h1 className="font-bold uppercase text-[20px] ">Welcome to HOME BUILDER.</h1>
