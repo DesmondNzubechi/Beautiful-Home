@@ -1,6 +1,9 @@
 import React from "react";
-import heroImg from '../../assets/images/heroImage/heroimg2.avif';
+import heroImg from '../../assets/images/heroImage/heroimg2.jpg';
 import { NavLink } from "react-router-dom";
+
+
+
 export const HeroSection = () => {
     return(
         <div className="pt-[150px] shadow flex rounded-b-[50px] flex-row justify-center px-[30px] pb-[100px] bg-slate-50 lg:min-h-[100vh] ">
