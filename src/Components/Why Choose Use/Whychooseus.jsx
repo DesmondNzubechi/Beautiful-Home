@@ -11,7 +11,7 @@ import rentImg from '../../assets/images/renting.avif';
 
 export const WhyChooseUs = () => {
     return(
-        <div className=" absolute left-0 right-0 top-[750px] md:top-[600px]  p-2 rounded bg-transparent  flex flex-row justify-center px-[20px] ">
+        <div className=" absolute left-0 right-0 top-[730px] sm:top-[750px] md:top-[600px]  p-2 rounded bg-transparent  flex flex-row justify-center px-[20px] ">
             <div className="flex flex-col md:flex-row gap-[30px] justify-center">
             <div className="max-w-[350px] bg-white shadow-2xl flex flex-col justify-center items-center gap-2 rounded-lg text-center  p-5 ">
               <div className="max-w-[150px]"><img src={sellImg} alt="" /></div>
