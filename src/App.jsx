@@ -7,7 +7,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div>
+    <div className='overflow-x-hidden'>
     <MobileHeader/> 
     <DesktopHeader/>
       <Routes>
