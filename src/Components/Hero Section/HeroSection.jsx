@@ -8,7 +8,7 @@ export const HeroSection = () => {
     return(
         <div className="pt-[150px] shadow flex rounded-b-[50px] flex-row justify-center px-[30px] pb-[100px] bg-slate-50 lg:min-h-[100vh] ">
             <div className="flex flex-col md:flex-row items-center gap-[50px] justify-around">
-                <div className="flex flex-col gap-5 w-[400px] md:max-w-[700px]">
+                <div className="flex flex-col gap-5 max-w-[400px] md:max-w-[700px]">
                     <h1 className="font-bold uppercase text-[20px] ">Welcome to HOME BUILDER.</h1>
                     <p className="md:text-[20px] text-[20px] capitalize ">Discover your dream home with HOME BUILDER Your Gateway to Exceptional Properties. We are your trusted partner in the exciting journey of finding the perfect place to call your own</p>
                     <div className="flex flex-row gap-2 ">
