@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 export const HeroSection = () => {
     return(
-        <div className="py-[150px] shadow flex rounded-b-[50px] shadow-2xl flex-row justify-center px-[30px]  bg-slate-50 lg:min-h-[100vh] ">
+        <div className="py-[150px] shadow flex rounded-b-[50px]  flex-row justify-center px-[30px]  bg-slate-50 lg:min-h-[100vh] ">
             <div className="flex flex-col md:flex-row items-center gap-[50px] justify-around">
                 <div className="flex flex-col gap-5 max-w-[400px] md:max-w-[500px]">
                     <h1 className="font-bold uppercase text-[20px] ">Welcome to HOME BUILDER.</h1>
