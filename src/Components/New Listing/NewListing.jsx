@@ -4,6 +4,8 @@ import {AiTwotoneCar} from 'react-icons/ai';
 import { MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
 import { Link } from "react-router-dom";
+import { HouseContext } from "../Context/HouseContext";
+import { useContext } from "react";
 //importing images from house 1
 import firstNewImg1 from '../../assets/images/Buy/house1/Img1.webp';
 import firstNewImg2 from '../../assets/images/Buy/house1/img2.webp';
@@ -136,35 +138,35 @@ const Listed = [
 
 ]
 
-
-
 export const NewListing = () => {
+     
+    const  {viewHouse} = useContext(HouseContext);
     return(
         <div className="px-[20px] py-[100px]">
            <div className="bg-white gap-5 grid grid-col-1 justify-center md:grid-cols-3">
             {
-                Listed.map(listing => {
+                Listed.map(property => {
                     return(
                         <div className="shadow-2xl max-w-[400px] relative rounded  ">
-                        <div className=" " ><img src={listing.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>
+                        <div className=" " ><img src={property.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>
                          <div className=" flex flex-col rounded-b  bg-white bottom-0 w-full gap-1">
                              <div className="flex flex-row px-2 py-1 justify-between">
                                  <div className="flex flex-row gap-1 items-center ">
                                      <HiLocationMarker className="text-[20px] text-green-500"/>
-                                     <p className="text-[17px] font-bold text-slate-900  capitalize ">{listing.location} </p>
+                                     <p className="text-[17px] font-bold text-slate-900  capitalize ">{property.location} </p>
                                  </div>
                                  <div className="flex  flex-row gap-1 items-center ">
                                      <FaMoneyCheckAlt className="text-[20px] text-green-500"/>
-                                     <p className="text-[20px] text-slate-900 font-bold  ">{listing.amount}</p>
+                                     <p className="text-[20px] text-slate-900 font-bold  ">{property.amount}</p>
                                  </div>
                                  </div>
                                  <div className="flex px-2 flex-row gap-[40px] justify-between items-center ">
-                                    <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[11px] md:text-[15px] font-bold text-slate-500"/>{listing.bed}</p>
-                                    <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[11px] md:text-[15px] font-bold text-slate-700"/>{listing.bath}</p>
-                                    <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[11px] md:text-[15px] font-bold text-slate-500"/>{listing.park}</p>
-                                    <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[12px] md:text-[15px] font-bold text-slate-500"/>{listing.kitchen}</p>
+                                    <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[11px] md:text-[15px] font-bold text-slate-500"/>{property.bed}</p>
+                                    <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[11px] md:text-[15px] font-bold text-slate-700"/>{property.bath}</p>
+                                    <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[11px] md:text-[15px] font-bold text-slate-500"/>{property.park}</p>
+                                    <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[12px] md:text-[15px] font-bold text-slate-500"/>{property.kitchen}</p>
                                  </div>
-                                 <Link className="bg-slate-900 hover:bg-slate-700 rounded-b text-center text-slate-50 text-[15px] py-[10px] uppercase font-bold">View Property</Link>
+                                 <Link onClick={() => viewHouse(property)} to='/Property-full-details' className="bg-slate-900 hover:bg-slate-700 rounded-b text-center text-slate-50 text-[15px] py-[10px] uppercase font-bold">View Property</Link>
                              </div>
                          </div>
                        

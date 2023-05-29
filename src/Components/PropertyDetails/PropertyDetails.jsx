@@ -1,28 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import newPic from '../../assets/images/Buy/house6/img1.webp';
 import {GrNext, GrPrevious} from 'react-icons/gr'
+import { useContext } from "react";
+import { HouseContext } from "../Context/HouseContext";
 import {FaBed, FaBath, FaMoneyCheckAlt, FaCar} from 'react-icons/fa';
 import {AiTwotoneCar} from 'react-icons/ai';
 import { MdKitchen, MdMoney, MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
 
 export const PropertyDetails = () => {
+
+    const { houseFeatures } = useContext(HouseContext);
+    const [currentImg, setCurrentImg] = useState(0);
+     let broadImg;
+    let imgLength;
+    houseFeatures.forEach(img => {
+        imgLength = img.pictures.length;
+        broadImg = img.pictures[currentImg];
+    });
+    const nextPic =() => {
+       if (currentImg + 1 < imgLength) {
+          setCurrentImg(currentImg + 1)
+       } else {
+        setCurrentImg(0);
+       }
+    }
     return(
         <div>
-        <div className="grid items-start gap-5 px-[20px] py-[50px] grid-cols-1 md:grid-cols-2">
+            {houseFeatures.map(housing => {
+
+      return <div className="grid pt-[150px] items-start gap-5 px-[20px] py-[50px] grid-cols-1 md:grid-cols-2">
       <div className="flex flex-col items-start relative gap-1">
-        <div className="flex items-center flex-row ">
+        <div className="flex items-center flex-row w-full ">
         <GrPrevious className="absolute left-1 text-slate-50 hover:bg-pink-500 font-bold bg-white p-1   text-[30px]"/>
-        <img src={newPic} alt=""  className=""/>
-        <GrNext className="absolute right-1 text-slate-50 hover:bg-pink-500 font-bold bg-white p-1   text-[30px]"/>
+        <img src={broadImg} alt=""  className="w-full"/>
+        <GrNext onClick={nextPic} className="absolute right-1 text-slate-50 hover:bg-pink-500 font-bold bg-white p-1   text-[30px]"/>
         </div>
      <div className=" overflow-x-auto flex justify-center flex-row gap-1">
-        <img src={newPic} className="w-[80px] " alt="" />
-        <img src={newPic} className="w-[80px] " alt="" />
-        <img src={newPic} className="w-[80px] " alt="" />
-        <img src={newPic} className="w-[80px] " alt="" />
-        <img src={newPic} className="w-[80px] " alt="" />
-        <img src={newPic} className="w-[80px] " alt="" />
+       
+      {housing.pictures.map((pics, picsIndex) => {
+        return  <img  src={pics} onClick={() => setCurrentImg(picsIndex)} className="w-[80px] hover:border hover:border-slate-700 active:border-2 hover:rounded " alt="" />
+      })}
      </div>
       </div>
       <div>
@@ -30,7 +48,7 @@ export const PropertyDetails = () => {
       <ul className="flex flex-col gap-y-3 items-start ">
       <li className="grid grid-cols-2 gap-x-[60px] gap-y-2">
         <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold uppercase"> <HiLocationMarker className="text-green-500"/> Bannana Ireland</li>
-        <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold uppercase"><MdMoney className="text-green-500"/> $500, 000</li>
+        <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold uppercase"><FaMoneyCheckAlt className="text-green-500"/> $500, 000</li>
        
         <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold "><FaBed className="text-green-500"/> 6bedroom Flat</li>
         <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold "><FaBath className="text-green-500"/> 6Bathroom</li>
@@ -50,6 +68,7 @@ export const PropertyDetails = () => {
       </div>
         </div>
         </div>
+          })}
         <div className="flex justify-center py-[50px] flex-row">
          <form action="" className="bg-pink-700 rounded flex flex-col gap-4 p-[50px]">
             <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Contact Agent</h1>
