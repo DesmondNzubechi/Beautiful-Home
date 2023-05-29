@@ -37,7 +37,7 @@ export const NewListing = () => {
         <div className="px-[20px] py-[100px]">
            <div className="bg-white flex justify-center">
               <div className="shadow-2xl relative rounded max-w-[400px] ">
-               <div><img src={newImg1} alt="" className="rounded" /></div>
+               <div><img src={firstNewImg1} alt="" className="rounded" /></div>
                 <div className=" flex flex-col rounded-b  bg-white bottom-0 w-full gap-1">
                     <div className="flex flex-row px-2 py-1 justify-between">
                         <div className="flex flex-row gap-1 items-center ">
