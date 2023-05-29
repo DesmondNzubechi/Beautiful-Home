@@ -50,10 +50,10 @@ export const NewListing = () => {
                         </div>
                         </div>
                         <div className="flex px-2 flex-row gap-[40px] justify-between items-center ">
-                           <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[15px] text-slate-500"/> 6 Bed</p>
-                           <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[15px] text-slate-700"/> 6 Bath</p>
-                           <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[15px] text-slate-500"/> 3 Park</p>
-                           <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[15px] text-slate-500"/> 3 kitchen</p>
+                           <p className="text-[12px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[12px] md:text-[15px] font-bold text-slate-500"/> 6 Bed</p>
+                           <p className="text-[12px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[12px] md:text-[15px] font-bold text-slate-700"/> 6 Bath</p>
+                           <p className="text-[12px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[12px] md:text-[15px] font-bold text-slate-500"/> 3 Park</p>
+                           <p className="text-[12px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[12px] md:text-[15px] font-bold text-slate-500"/> 3 kitchen</p>
                         </div>
                         <Link className="bg-slate-900 hover:bg-slate-700 rounded-b text-center text-slate-50 text-[15px] py-[10px] uppercase font-bold">View Property</Link>
                     </div>
