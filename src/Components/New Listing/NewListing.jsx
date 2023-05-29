@@ -4,16 +4,16 @@ import {AiTwotoneCar} from 'react-icons/ai';
 import { MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
 import { Link } from "react-router-dom";
-import newImg1 from '../../assets/images/Buy/house1/Img1.webp';
-import newImg2 from '../../assets/images/Buy/house1/Img2.webp';
-import newImg3 from '../../assets/images/Buy/house1/Img3.webp';
-import newImg4 from '../../assets/images/Buy/house1/Img4.webp';
-import newImg5 from '../../assets/images/Buy/house1/Img5.webp';
-import inside1 from '../../assets/images/Buy/house1/inside1.webp';
-import inside2 from '../../assets/images/Buy/house1/inside2.webp';
-import inside3 from '../../assets/images/Buy/house1/inside3.webp';
-import inside4 from '../../assets/images/Buy/house1/inside4.webp';
-import inside5 from '../../assets/images/Buy/house1/inside5.webp';
+import firstNewImg1 from '../../assets/images/Buy/house1/Img1.webp';
+import firstNewImg2 from '../../assets/images/Buy/house1/img2.webp';
+import firstNewImg3 from '../../assets/images/Buy/house1/img3.webp';
+import firstNewImg4 from '../../assets/images/Buy/house1/img4.webp';
+import firstNewImg5 from '../../assets/images/Buy/house1/img5.webp';
+import Finside1 from '../../assets/images/Buy/house1/inside1.webp';
+import Finside2 from '../../assets/images/Buy/house1/inside2.webp';
+import Finside3 from '../../assets/images/Buy/house1/inside3.webp';
+import Finside4 from '../../assets/images/Buy/house1/inside4.webp';
+import Finside5 from '../../assets/images/Buy/house1/inside5.webp';
 
 const Listed = [
     {
@@ -23,9 +23,9 @@ const Listed = [
         bath: '6 Bath',
         park: '3 Park',
         kitchen: '4 Kitchen',
-        frontPic: newImg1,
+        frontPic: firstNewImg1,
         fullDescr: '',
-        pictures: [newImg1, newImg2, newImg3, newImg4, newImg5, inside1, inside2, inside3, inside4, inside5],
+        pictures: [firstNewImg1, firstNewImg2, firstNewImg3, firstNewImg4, firstNewImg5, Finside1, Finside2, Finside3, Finside4, Finside5],
 
     }
 ]
@@ -53,7 +53,7 @@ export const NewListing = () => {
                            <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[15px] text-slate-500"/> 6 Bed</p>
                            <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[15px] text-slate-700"/> 6 Bath</p>
                            <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[15px] text-slate-500"/> 3 Park</p>
-                           <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[15px] text-slate-500"/> 3 Park</p>
+                           <p className="text-[15px] flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[15px] text-slate-500"/> 3 kitchen</p>
                         </div>
                         <Link className="bg-slate-900 hover:bg-slate-700 rounded-b text-center text-slate-50 text-[15px] py-[10px] uppercase font-bold">View Property</Link>
                     </div>
