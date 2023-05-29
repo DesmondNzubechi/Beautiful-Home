@@ -145,8 +145,8 @@ export const NewListing = () => {
             {
                 Listed.map(listing => {
                     return(
-                        <div className="shadow-2xl relative rounded  ">
-                        <div className="max-w-[400px]" ><img src={listing.frontPic} alt="" className="rounded w-full md:h-[300px] " /></div>
+                        <div className="shadow-2xl max-w-[400px] relative rounded  ">
+                        <div className=" " ><img src={listing.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>
                          <div className=" flex flex-col rounded-b  bg-white bottom-0 w-full gap-1">
                              <div className="flex flex-row px-2 py-1 justify-between">
                                  <div className="flex flex-row gap-1 items-center ">
