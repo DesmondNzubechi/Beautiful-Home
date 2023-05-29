@@ -4,7 +4,6 @@ import { WhyChooseUs } from "../../Components/Why Choose Use/Whychooseus";
 import { AboutHome } from "../../Components/HomeAbout/Homeabout";
 import { NewListing } from "../../Components/New Listing/NewListing";
 import { HousesDetails } from "../../Components/Context/HouseContext";
-import { PropertyDetails } from "../../Components/PropertyDetails/PropertyDetails";
 export const Home = () => {
     return(
         <div className="bg-white ">
@@ -12,7 +11,6 @@ export const Home = () => {
     <WhyChooseUs/>
     <AboutHome/>
     <NewListing/>
-   <PropertyDetails/>
         </div>
     )
 }

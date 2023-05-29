@@ -24,7 +24,15 @@ export const PropertyDetails = () => {
        } else {
         setCurrentImg(0);
        }
+    };
+    const prevPic = () => {
+        if (currentImg > 0) {
+            setCurrentImg(currentImg - 1);
+        } else {
+            setCurrentImg(imgLength - 1);
+        }
     }
+    
     return(
         <div>
             {houseFeatures.map(housing => {
@@ -32,7 +40,7 @@ export const PropertyDetails = () => {
       return <div className="grid pt-[150px] items-start gap-5 px-[20px] py-[50px] grid-cols-1 md:grid-cols-2">
       <div className="flex flex-col items-start relative gap-1">
         <div className="flex items-center flex-row w-full ">
-        <GrPrevious className="absolute left-1 text-slate-50 hover:bg-pink-500 font-bold bg-white p-1   text-[30px]"/>
+        <GrPrevious onClick={prevPic} className="absolute left-1 text-slate-50 hover:bg-pink-500 font-bold bg-white p-1   text-[30px]"/>
         <img src={broadImg} alt=""  className="w-full"/>
         <GrNext onClick={nextPic} className="absolute right-1 text-slate-50 hover:bg-pink-500 font-bold bg-white p-1   text-[30px]"/>
         </div>
