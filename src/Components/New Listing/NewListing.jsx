@@ -15,6 +15,20 @@ import Finside3 from '../../assets/images/Buy/house1/inside3.webp';
 import Finside4 from '../../assets/images/Buy/house1/inside4.webp';
 import Finside5 from '../../assets/images/Buy/house1/inside5.webp';
 
+import secondNewImg1 from '../../assets/images/Buy/house1/Img1.webp';
+import secondNewImg2 from '../../assets/images/Buy/house1/img2.webp';
+import secondNewImg3 from '../../assets/images/Buy/house1/img3.webp';
+import secondNewImg4 from '../../assets/images/Buy/house1/img4.webp';
+import secondNewImg5 from '../../assets/images/Buy/house1/img5.webp';
+import sInside1 from '../../assets/images/Buy/house1/inside1.webp';
+import sInside2 from '../../assets/images/Buy/house1/inside2.webp';
+import sInside3 from '../../assets/images/Buy/house1/inside3.webp';
+import sInside4 from '../../assets/images/Buy/house1/inside4.webp';
+import sInside5 from '../../assets/images/Buy/house1/inside5.webp';
+
+
+
+
 const Listed = [
     {
         location: 'Bannana',
@@ -50,10 +64,10 @@ export const NewListing = () => {
                         </div>
                         </div>
                         <div className="flex px-2 flex-row gap-[40px] justify-between items-center ">
-                           <p className="text-[12px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[12px] md:text-[15px] font-bold text-slate-500"/> 6 Bed</p>
-                           <p className="text-[12px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[12px] md:text-[15px] font-bold text-slate-700"/> 6 Bath</p>
-                           <p className="text-[12px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[12px] md:text-[15px] font-bold text-slate-500"/> 3 Park</p>
-                           <p className="text-[12px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[12px] md:text-[15px] font-bold text-slate-500"/> 3 kitchen</p>
+                           <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[11px] md:text-[15px] font-bold text-slate-500"/> 6Bed</p>
+                           <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[11px] md:text-[15px] font-bold text-slate-700"/>6Bath</p>
+                           <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[11px] md:text-[15px] font-bold text-slate-500"/> 3Park</p>
+                           <p className="text-[11px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[12px] md:text-[15px] font-bold text-slate-500"/> 3kitchen</p>
                         </div>
                         <Link className="bg-slate-900 hover:bg-slate-700 rounded-b text-center text-slate-50 text-[15px] py-[10px] uppercase font-bold">View Property</Link>
                     </div>
