@@ -78,6 +78,7 @@ export const PropertyDetails = () => {
         </div>
           })}
         <div className="flex justify-center gap-5 p-[20px] py-[50px] flex-row">
+          <div className="fixed top-[]  w-full bottom-0 flex justify-center z-[10] p-[50px] bg-Tp">
          <form action="" className="bg-pink-700 rounded flex flex-col gap-4 p-[50px]">
             <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Contact Agent</h1>
             <div className="flex flex-col">
@@ -99,7 +100,7 @@ export const PropertyDetails = () => {
             </div>
             </div>
         </form>
-
+        </div>
         <form action="" className="bg-pink-700 rounded flex flex-col gap-4 p-[50px]">
             <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Request a tour</h1>
             <div className="flex flex-col">
