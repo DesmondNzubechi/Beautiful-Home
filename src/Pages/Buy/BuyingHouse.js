@@ -1,5 +1,5 @@
 //importing image from first house
-import firstHouse1 from '../../assets/images/Buy/house1/img1.webp';
+import firstHouse1 from '../../assets/images/Buy/house1/Img1.webp';
 import firstHouse2 from '../../assets/images/Buy/house1/img2.webp';
 import firstHouse3 from '../../assets/images/Buy/house1/img3.webp';
 import firstHouse4 from '../../assets/images/Buy/house1/img4.webp';
