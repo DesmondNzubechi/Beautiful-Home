@@ -6,7 +6,7 @@ import { Home } from './Pages/Home/Home';
 import { HousesDetails } from './Components/Context/HouseContext';
 import { PropertyDetails } from './Components/PropertyDetails/PropertyDetails';
 import { BuyHouse } from './Pages/Buy/Buy';
-
+import { RentHouse } from './Pages/Rent/Rent';
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +17,7 @@ function App() {
       <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/buy' element={<BuyHouse/>} />
+    <Route path='/rent' element={<RentHouse/>} />
     <Route path='/Property-full-details' element={<PropertyDetails/>}/>
       </Routes>
     </div>

@@ -48,8 +48,8 @@ const hideNav = () => {
         <div className="bg-slate-900 md:hidden px-[20px] gap-5 z-[5] items-center fixed top-0 w-full text-slate-50 flex flex-row justify-around py-[10px]  ">
             <div className="relative z-[1]  font-bold uppercase text-[20px]"><NavLink to='/' className='flex items-center flex-row' to='/'>Homebuilder<BsFillHouseCheckFill/></NavLink></div>
            
-                <input className="w-full relative z-[5] rounded  text-slate-500 py-[5px] text-center outline-0 " placeholder="Search For Home" type="text"  />
-          
+               { /*<input className="w-full relative z-[5] rounded  text-slate-500 py-[5px] text-center outline-0 " placeholder="Search For Home" type="text"  />
+  */}        
            <ul className={`flex transition duration-1000 ease-out delay-500  flex-col  gap-3 fixed bg-slate-900  top-0 ${showLink} w-[50%] bottom-0 px-[20px]  pt-[100px]`}>
            {
             linking.map(linkss => {
