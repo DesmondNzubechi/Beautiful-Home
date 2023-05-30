@@ -12,8 +12,8 @@ import { diffHouses } from "./BuyingHouse";
 export const BuyHouse = () => {
     const  {viewHouse} = useContext(HouseContext);
     return(
-        <div className="px-[20px] py-[100px]">
-           <div className="bg-white gap-5 grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
+        <div className="px-[20px] pt-[150px] py-[100px]">
+           <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
             {
                 diffHouses.map(property => {
                     return(
