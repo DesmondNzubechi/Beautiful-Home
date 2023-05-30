@@ -77,7 +77,7 @@ export const PropertyDetails = () => {
         </div>
         </div>
           })}
-        <div className="flex justify-center py-[50px] flex-row">
+        <div className="flex justify-center gap-5 p-[20px] py-[50px] flex-row">
          <form action="" className="bg-pink-700 rounded flex flex-col gap-4 p-[50px]">
             <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Contact Agent</h1>
             <div className="flex flex-col">
@@ -88,6 +88,7 @@ export const PropertyDetails = () => {
                 <label className="text-slate-900 font-[400] text-[20px]" htmlFor="Tel">Phone:</label>
                <input type="tel" className="border outline-0  p-2 rounded" name="" placeholder="+234 708 41823 611" id="" />
                <div className="flex flex-col">
+                
                 <label className="text-slate-900 font-[400] text-[20px]" htmlFor="email">Email:</label>
                 <input type="email" className="border outline-0  p-2 rounded" placeholder="nzubechukwu1@gmail.com" />
             </div>
@@ -95,6 +96,35 @@ export const PropertyDetails = () => {
                 <label className="text-slate-900 font-[400] text-[20px]" htmlFor="message">Message</label>
                 <textarea name="" className="border outline-0  p-2 rounded" id=""></textarea>
                 <button className="bg-slate-900 text-slate-50 p-2 my-[20px] rounded text-[20px] capitalize">Send message</button>
+            </div>
+            </div>
+        </form>
+
+        <form action="" className="bg-pink-700 rounded flex flex-col gap-4 p-[50px]">
+            <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Request a tour</h1>
+            <div className="flex flex-col">
+                <label htmlFor="name" className="text-slate-900 font-[400] text-[20px]">Date:</label>
+                <input type="date" className="border outline-0  p-2 rounded" placeholder="Nzubechukwu Desmond" />
+            </div>
+            <div className="flex flex-col">
+                <label className="text-slate-900 font-[400] text-[20px]" htmlFor="Tel">Time:</label>
+               <input type="time" className="border outline-0  p-2 rounded" name="" placeholder="+234 708 41823 611" id="" />
+               <div className="flex flex-col">
+                <label htmlFor="name" className="text-slate-900 font-[400] text-[20px]">Name:</label>
+                <input type="text" className="border outline-0  p-2 rounded" placeholder="Nzubechukwu Desmond" />
+            </div>
+            <div className="flex flex-col">
+                <label className="text-slate-900 font-[400] text-[20px]" htmlFor="Tel">Phone:</label>
+                <input type="tel" className="border outline-0  p-2 rounded" name="" placeholder="+234 708 41823 611" id="" />
+                </div>
+
+               <div className="flex flex-col">
+                <label className="text-slate-900 font-[400] text-[20px]" htmlFor="email">Email:</label>
+                <input type="email" className="border outline-0  p-2 rounded" placeholder="nzubechukwu1@gmail.com" />
+            </div>
+            <div className="flex flex-col">
+      
+                <button className="bg-slate-900 text-slate-50 p-2 my-[20px] rounded text-[20px] capitalize">Submit Request</button>
             </div>
             </div>
         </form>

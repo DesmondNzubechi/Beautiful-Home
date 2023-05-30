@@ -1,5 +1,5 @@
 //importing image from first house
-import firstHouse1 from '../../assets/images/Buy/house1/img1.webp';
+import firstHouse1 from '../../assets/images/Buy/house1/img2.webp';
 import firstHouse2 from '../../assets/images/Buy/house1/img2.webp';
 import firstHouse3 from '../../assets/images/Buy/house1/img3.webp';
 import firstHouse4 from '../../assets/images/Buy/house1/img4.webp';
@@ -106,7 +106,7 @@ import tenHouse10 from '../../assets/images/Buy/house10/inside5.webp';
 
 
 //importing image from eleven house
-import elevenHouse1 from '../../assets/images/Buy/house1/img1.webp';
+import elevenHouse1 from '../../assets/images/Buy/house11/img1.webp';
 import elevenHouse3 from '../../assets/images/Buy/house11/inside8.webp';
 import elevenHouse4 from '../../assets/images/Buy/house11/inside6.webp';
 import elevenHouse5 from '../../assets/images/Buy/house11/inside7.webp';
