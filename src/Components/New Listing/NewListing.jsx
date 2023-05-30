@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { HouseContext } from "../Context/HouseContext";
 import { useContext } from "react";
 //importing images from house 1
-import firstNewImg1 from '../../assets/images/Buy/house1/img1.webp';
+import firstNewImg1 from '../../assets/images/Buy/house1/img2.webp';
 import firstNewImg2 from '../../assets/images/Buy/house1/img2.webp';
 import firstNewImg3 from '../../assets/images/Buy/house1/img3.webp';
 import firstNewImg4 from '../../assets/images/Buy/house1/img4.webp';
