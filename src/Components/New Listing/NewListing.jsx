@@ -142,7 +142,11 @@ export const NewListing = () => {
      
     const  {viewHouse} = useContext(HouseContext);
     return(
-        <div className="px-[20px] py-[100px]">
+        <div className="px-[20px] py-[50px]">
+            <div className="flex md:justify-start justify-center mb-[20px]  ">
+                <h1 className="uppercase border-b-[5px] rounded-[10px] p-1    md:text-start font-bold text-[30px] ">New listing</h1>
+               
+            </div>
            <div className="bg-white gap-5 grid grid-col-1 justify-center md:grid-cols-3">
             {
                 Listed.map(property => {

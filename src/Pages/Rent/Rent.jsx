@@ -3,6 +3,7 @@ import {FaBed, FaBath, FaMoneyCheckAlt} from 'react-icons/fa';
 import {AiTwotoneCar} from 'react-icons/ai';
 import { MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
+import bgImg from '../../assets/images/Rent/rent10/img1.webp';
 import { Link } from "react-router-dom";
 import { HouseContext } from "../../Components/Context/HouseContext";
 import { useContext } from "react";
@@ -11,6 +12,16 @@ import { diffRent } from "./RentingHouses";
 export const RentHouse = () => {
     const  {viewHouse} = useContext(HouseContext);
     return(
+        <div>
+        <div  data-aos='fade-up' aos-data-duration='2000'
+    style={{ backgroundImage: `url(${bgImg})` }}
+  className={`min-h-[50vh] relative after:left-0 after:right-0 after:absolute after:top-0 after:h-full bg-center flex items-center after:w-full after:bg-bgT pt-[50px]  px-[30px] bg-cover z-[1]  `}>
+    <div className="relative z-[1] py-[50px] max-w-[700px]">
+    <h1 className="font-bold text-slate-50 text-[50px] ">Rent Home</h1>
+<p className="text-slate-200 font-fonty text-[17px] ">Rental properties are typically managed by landlords or property management companies, which means you don't have to worry about maintenance and repairs. If something goes wrong, such as a plumbing issue or a broken appliance, you can simply contact the landlord or property manager to have it fixed.</p>
+    </div>
+
+  </div>
         <div className="px-[20px] pt-[150px] py-[100px]">
            <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
             {
@@ -43,6 +54,7 @@ export const RentHouse = () => {
                 })
             }
              </div>
+           </div>
            </div>
     )
 }

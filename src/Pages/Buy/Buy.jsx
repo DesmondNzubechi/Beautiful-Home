@@ -3,6 +3,7 @@ import {FaBed, FaBath, FaMoneyCheckAlt} from 'react-icons/fa';
 import {AiTwotoneCar} from 'react-icons/ai';
 import { MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
+import bgImg from '../../assets/images/Buy/house4/img1.webp';
 import { Link } from "react-router-dom";
 import { HouseContext } from "../../Components/Context/HouseContext";
 import { useContext } from "react";
@@ -12,7 +13,17 @@ import { diffHouses } from "./BuyingHouse";
 export const BuyHouse = () => {
     const  {viewHouse} = useContext(HouseContext);
     return(
-        <div className="px-[20px] pt-[150px] py-[100px]">
+        <div>
+            <div  data-aos='fade-up' aos-data-duration='2000'
+        style={{ backgroundImage: `url(${bgImg})` }}
+      className={`min-h-[50vh] relative after:left-0 after:right-0 after:absolute after:top-0 after:h-full bg-center flex items-center after:w-full after:bg-bgT pt-[50px]  px-[30px] bg-cover z-[1]  `}>
+        <div className="relative z-[1] py-[50px] max-w-[700px]">
+        <h1 className="font-bold text-slate-50 text-[50px] ">Buy Home</h1>
+<p className="text-slate-200 font-fonty text-[17px] ">Homeownership often comes with a sense of pride and belonging to a neighborhood. You have the opportunity to engage with your neighbors, participate in local activities, and contribute to the overall well-being of the community.</p>
+        </div>
+
+      </div>
+      <div className="px-[20px] pt-[150px] py-[100px]">
            <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
             {
                 diffHouses.map(property => {
@@ -43,6 +54,7 @@ export const BuyHouse = () => {
                     )
                 })
             }
+             </div>
              </div>
            </div>
     )
