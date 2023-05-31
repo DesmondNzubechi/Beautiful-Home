@@ -7,6 +7,7 @@ import {FaBed, FaBath, FaMoneyCheckAlt, FaCar} from 'react-icons/fa';
 import {AiTwotoneCar} from 'react-icons/ai';
 import { MdKitchen, MdMoney, MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
+import  { HiOutlineBars3, HiXMark } from 'react-icons/hi2';
 
 export const PropertyDetails = () => {
   const [form, setForm] = useState({
@@ -53,7 +54,7 @@ export const PropertyDetails = () => {
          agentForm : 'top-[-2000px]',
        })
     }
-    const hidetourForm = () => {
+    const hideTourForm = () => {
       setForm({
          tourForm : 'top-[-1000px]',
          agentForm : 'top-[-1000px]',
@@ -81,13 +82,13 @@ export const PropertyDetails = () => {
       <div className="flex    flex-row">   
       <ul className="flex flex-col gap-y-3 items-start ">
       <li className="grid grid-cols-2 gap-x-[60px] gap-y-2">
-        <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold uppercase"> <HiLocationMarker className="text-green-500"/> Bannana Ireland</li>
-        <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold uppercase"><FaMoneyCheckAlt className="text-green-500"/> $500, 000</li>
+        <li className="flex flex-row gap-x-2 text-slate-900 items-center text-[15px] md:text-[20px] font-semibold uppercase"> <HiLocationMarker className="text-green-500"/> {housing.location}</li>
+        <li className="flex flex-row gap-x-2  items-center text-[15px] md:text-[20px] font-semibold uppercase"><FaMoneyCheckAlt className="text-green-500"/> {housing.amount}</li>
        
-        <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold "><FaBed className="text-green-500"/> 6bedroom Flat</li>
-        <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold "><FaBath className="text-green-500"/> 6Bathroom</li>
-        <li className="flex flex-row gap-x-2  items-center text-[17px] md:text-[20px] font-semibold "><MdKitchen className="text-green-500"/> 2Kitchen</li>
-        <li className="flex flex-row gap-x-2  items-center text-[17px] ] font-semibold "><FaCar className="text-green-500"/> 2Car Park</li>
+        <li className="flex flex-row gap-x-2  items-center text-[15px] md:text-[20px] font-semibold "><FaBed className="text-green-500"/>{housing.bed}</li>
+        <li className="flex flex-row gap-x-2  items-center text-[15px] md:text-[20px] font-semibold "><FaBath className="text-green-500"/>{housing.bath}</li>
+        <li className="flex flex-row gap-x-2  items-center text-[15px] md:text-[20px] font-semibold "><MdKitchen className="text-green-500"/>{housing.kitchen}</li>
+        <li className="flex flex-row gap-x-2  items-center text-[15px] ] font-semibold "><FaCar className="text-green-500"/>{housing.park}</li>
         </li>
       </ul>
       </div>
@@ -104,8 +105,13 @@ export const PropertyDetails = () => {
         </div>
           })}
         <div className="flex justify-center gap-5 p-[20px] py-[50px] flex-row">
-          <div onClick={(e) => {e.target.tagName !== 'form'? setForm({...form, agentForm: 'top-[-200px]'}): form}} className={`fixed ${form.agentForm}  w-full h-full flex justify-center z-[10] p-[50px] bg-Tp`}>
-         <form action="" className="bg-pink-700 rounded flex flex-col gap-4 p-[50px]">
+          <span onClick={(e) => {
+            if (e.target.tagName === 'SPAN') {
+              setForm({...form, agentForm: 'top-[-2000px]'})
+            }
+          }} className={`fixed ${form.agentForm}  w-full h-full flex justify-center z-[10] p-[50px] bg-Tp`}>
+         <form action="" className="bg-pink-700 relative rounded flex flex-col gap-4 p-[50px]">
+          <HiXMark onClick={hideAgentForm} className="absolute top-0 right-0 text-slate-50 active:text-slate-900 text-[25px] font-bold "/>
             <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Contact Agent</h1>
             <div className="flex flex-col">
                 <label htmlFor="name" className="text-slate-900 font-[400] text-[20px]">Name:</label>
@@ -126,9 +132,14 @@ export const PropertyDetails = () => {
             </div>
             </div>
         </form>
-        </div>
-        <div className={`fixed ${form.tourForm} w-full overflow-y-auto  h-full flex justify-center z-[10] p-[50px] bg-Tp`}>
-        <form action="" className="bg-pink-700 overflow-y-auto rounded flex flex-col gap-4 p-[50px]">
+        </span>
+        <span  onClick={(e) => {
+            if (e.target.tagName === 'SPAN') {
+              setForm({...form, tourForm: 'top-[-2000px]'})
+            }
+          }} className={`fixed ${form.tourForm} w-full overflow-y-auto  h-full flex justify-center z-[10] p-[50px] bg-Tp`}>
+        <form action="" className="bg-pink-700 relative overflow-y-auto rounded flex flex-col gap-4 p-[50px]">
+        <HiXMark onClick={hideTourForm} className="absolute top-0 right-0 text-slate-50 active:text-slate-900 text-[25px] font-bold "/>
             <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Request a tour</h1>
             <div className="flex flex-col">
                 <label htmlFor="name" className="text-slate-900 font-[400] text-[20px]">Date:</label>
@@ -156,7 +167,7 @@ export const PropertyDetails = () => {
             </div>
             </div>
         </form>
-        </div>
+        </span>
          </div>
         </div>
     )

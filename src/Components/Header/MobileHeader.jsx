@@ -53,7 +53,7 @@ const hideNav = () => {
            <ul className={`flex transition duration-1000 ease-out delay-500  flex-col  gap-3 fixed bg-slate-900  top-0 ${showLink} w-[50%] bottom-0 px-[20px]  pt-[100px]`}>
            {
             linking.map(linkss => {
-                return <li><NavLink className='text-slate-200 text-[20px] font-[500] ' to={linkss.link}>{linkss.name}</NavLink></li>
+                return <li><NavLink style={({isActive}) => { return isActive? {borderBottom: '2px solid white'} : {} }} className='text-slate-200 text-[20px] font-[500] ' to={linkss.link}>{linkss.name}</NavLink></li>
             })
            }
            <div className="flex flex-col gap-2">

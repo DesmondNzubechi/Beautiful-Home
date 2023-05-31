@@ -7,13 +7,16 @@ import { HousesDetails } from './Components/Context/HouseContext';
 import { PropertyDetails } from './Components/PropertyDetails/PropertyDetails';
 import { BuyHouse } from './Pages/Buy/Buy';
 import { RentHouse } from './Pages/Rent/Rent';
+import { ScrollToTop } from './Components/ScrollTop/Scrolltop';
 function App() {
   return (
     <BrowserRouter>
+   
     <HousesDetails>
     <div className='overflow-x-hidden'>
     <MobileHeader/> 
     <DesktopHeader/>
+    <ScrollToTop/>
       <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/buy' element={<BuyHouse/>} />
@@ -22,7 +25,6 @@ function App() {
       </Routes>
     </div>
     </HousesDetails>
-    
     </BrowserRouter>
   )
 }
