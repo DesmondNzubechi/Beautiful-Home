@@ -1,14 +1,18 @@
 import React from "react";
-
+import { useContext } from "react";
+import { HouseContext } from "../Context/HouseContext";
 
 export const SearchPage = () => {
-     
+     const {filteredSearch} = useContext(HouseContext);
 
     return(
         <div className="py-[150px] px-[20px] ">
             <div>
 {
-                diffRent.map(property => {
+    filteredSearch.length === 0 ?
+    <h1>Search for house</h1>
+    :
+                filteredSearch.map(property => {
                     return(
                         <div className="shadow-2xl max-w-[400px] relative rounded  ">
                         <div className=" " ><img src={property.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>

@@ -8,10 +8,10 @@ import { PropertyDetails } from './Components/PropertyDetails/PropertyDetails';
 import { BuyHouse } from './Pages/Buy/Buy';
 import { RentHouse } from './Pages/Rent/Rent';
 import { ScrollToTop } from './Components/ScrollTop/Scrolltop';
+import { SearchPage } from './Components/Search/Search';
 function App() {
   return (
     <BrowserRouter>
-   
     <HousesDetails>
     <div className='overflow-x-hidden'>
     <MobileHeader/> 
@@ -19,6 +19,7 @@ function App() {
     <ScrollToTop/>
       <Routes>
     <Route path='/' element={<Home/>}/>
+    <Route path='/search-result' element={<SearchPage/>} />
     <Route path='/buy' element={<BuyHouse/>} />
     <Route path='/rent' element={<RentHouse/>} />
     <Route path='/Property-full-details' element={<PropertyDetails/>}/>

@@ -23,17 +23,19 @@ export const HousesDetails = (props) => {
                if (searching !== '') {
                   const searchResult = buyRent.filter(filtered => (
                      filtered.location.toLocaleLowerCase().includes(searching.toLocaleLowerCase()) || filtered.amount.toLocaleLowerCase().includes(searching.toLocaleLowerCase)
-                  ))
+                  ));
                   setFilteredSearch(searchResult);
+               } else {
+                  return filteredSearch;
                }
-              
+            
                console.log(searching);
                console.log(filteredSearch);
              }
             
              
             return(
-                <HouseContext.Provider value={{viewHouse, getSearch, houseFeatures}}>
+                <HouseContext.Provider value={{viewHouse, filteredSearch, getSearch, houseFeatures}}>
                       {props.children}
                 </HouseContext.Provider>
             )
