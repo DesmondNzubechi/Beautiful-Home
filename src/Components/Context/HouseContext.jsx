@@ -14,22 +14,8 @@ export const HousesDetails = (props) => {
                 setHouseFeatures([property]);
              }
              console.log(houseFeatures);
-             const [form, setForm] = useState({
-               tourForm : 'top-[-2000px]',
-               agentForm : 'top-[-2000px]',
-             })
-             const viewAgentForm = () => {
-               setForm({
-                  tourForm : 'top-[-2000px]',
-                  agentForm : 'top-0',
-                })
-             }
-             const viewtourForm = () => {
-               setForm({
-                  tourForm : 'top-0',
-                  agentForm : 'top-[-2000px]',
-                })
-             }
+            
+             
             return(
                 <HouseContext.Provider value={{viewHouse, houseFeatures}}>
                       {props.children}
