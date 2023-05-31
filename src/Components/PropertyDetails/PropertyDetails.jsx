@@ -99,7 +99,7 @@ export const PropertyDetails = () => {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
         <button onClick={viewAgentForm} className="bg-green-500 rounded px-3  py-2 text-[15px] text-slate-50 font-semibold   ">Contact Agent</button>
         <button onClick={viewtourForm} className="bg-slate-900 rounded px-3  py-2 text-[15px] text-slate-50 font-semibold   ">Request A Tour</button>
-        <button className="bg-slate-50 rounded px-3  py-2 text-[15px] text-slate-900 font-semibold border   ">Ask Question</button>
+        {/*<button className="bg-slate-50 rounded px-3  py-2 text-[15px] text-slate-900 font-semibold border   ">Ask Question</button>*/}
       </div>
         </div>
         </div>
