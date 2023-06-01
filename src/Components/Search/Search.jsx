@@ -1,17 +1,25 @@
 import React from "react";
 import { useContext } from "react";
 import { HouseContext } from "../Context/HouseContext";
+import {FaBed, FaBath, FaMoneyCheckAlt} from 'react-icons/fa';
+import {AiTwotoneCar} from 'react-icons/ai';
+import { MdSoupKitchen } from 'react-icons/md';
+import { HiLocationMarker } from 'react-icons/hi';
+import { Link } from "react-router-dom";
 
 export const SearchPage = () => {
-     const {filteredSearch} = useContext(HouseContext);
+     const {filteredSearch, viewHouse} = useContext(HouseContext);
 
     return(
-        <div className="py-[150px] px-[20px] ">
+        <div className="py-[50px] px-[20px] ">
             <div>
 {
     filteredSearch.length === 0 ?
-    <h1>Search for house</h1>
+    <h1 className="text-center mt-[50px] uppercase font-bold  text-[30px] ">Search for house</h1>
     :
+    <div className="px-[20px] pt-[50px] py-[100px]">
+    <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
+        {
                 filteredSearch.map(property => {
                     return(
                         <div className="shadow-2xl max-w-[400px] relative rounded  ">
@@ -40,6 +48,9 @@ export const SearchPage = () => {
                     )
                 })
             }
+              </div>
+              </div>
+}
             </div>
         </div>
     )

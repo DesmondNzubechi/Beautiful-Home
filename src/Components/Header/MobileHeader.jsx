@@ -51,7 +51,7 @@ const hideNav = () => {
     return(
         <>
         <div className="bg-slate-900 md:hidden px-[20px] gap-5 z-[5] items-center fixed top-0 w-full text-slate-50 flex flex-row justify-around py-[10px]  ">
-            <div className="relative z-[1]  font-bold uppercase text-[20px]"><NavLink to='/' className='flex items-center flex-row' >Homebuilder<BsFillHouseCheckFill/></NavLink></div>
+            <div className="relative z-[1]  font-bold uppercase text-[15px]"><NavLink to='/' className='flex items-center flex-row' >Homebuilder<BsFillHouseCheckFill/></NavLink></div>
             <NavLink to='/search-result'>
                 <input onChange={(e) => getSearch(e) } className="w-full relative z-[5] rounded  text-slate-500 py-[5px]  px-[10px] outline-0 " placeholder="Search here " type="text"  />
              </NavLink> 
@@ -69,8 +69,8 @@ const hideNav = () => {
            </ul>
            <div className="flex gap-5 items-center">
           
-          {icons.showIcon &&  <HiOutlineBars3 onClick={showNav} className="text-slate-50 text-[40px] "/>}
-         {icons.hideicon &&  <HiXMark onClick={hideNav} className="text-slate-50 text-[40px]"/>}
+          {icons.showIcon &&  <HiOutlineBars3 onClick={showNav} className="text-slate-50 text-[30px] "/>}
+         {icons.hideicon &&  <HiXMark onClick={hideNav} className="text-slate-50 text-[30px]"/>}
            </div>
         </div>
         </>

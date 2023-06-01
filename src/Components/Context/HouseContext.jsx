@@ -8,7 +8,6 @@ export const HouseContext = createContext();
 export const HousesDetails = (props) => {
              const buyRent = [...diffHouses, ...diffRent];
              const [filteredSearch, setFilteredSearch] = useState([]);
-             
              const [houseFeatures, setHouseFeatures] = useState(JSON.parse(localStorage.getItem('houseFeatures')) || []);
              useEffect(() => {
                 localStorage.setItem('houseFeatures', JSON.stringify(houseFeatures))
@@ -19,16 +18,13 @@ export const HousesDetails = (props) => {
              }
              const getSearch = (e) => {
                    
-               const searching = e.target.value;
+            const searching = e.target.value;
                if (searching !== '') {
                   const searchResult = buyRent.filter(filtered => (
-                     filtered.location.toLocaleLowerCase().includes(searching.toLocaleLowerCase()) || filtered.amount.toLocaleLowerCase().includes(searching.toLocaleLowerCase)
+                     filtered.location.toLocaleLowerCase().includes(searching.toLocaleLowerCase()) || filtered.amount.includes(searching)
                   ));
                   setFilteredSearch(searchResult);
-               } else {
-                  return filteredSearch;
-               }
-            
+               } 
                console.log(searching);
                console.log(filteredSearch);
              }
