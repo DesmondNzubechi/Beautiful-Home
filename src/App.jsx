@@ -10,6 +10,7 @@ import { RentHouse } from './Pages/Rent/Rent';
 import { ScrollToTop } from './Components/ScrollTop/Scrolltop';
 import { SearchPage } from './Components/Search/Search';
 import { Login } from './Components/Login/login';
+import { Signup } from './Components/signup/Signup';
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
     <Route path='/rent' element={<RentHouse/>} />
     <Route path='/Property-full-details' element={<PropertyDetails/>}/>
     <Route path='/login' element={<Login/>} />
+    <Route path='/signup' element={<Signup/>} />
       </Routes>
     </div>
     </HousesDetails>
