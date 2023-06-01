@@ -8,16 +8,17 @@ import { HiLocationMarker } from 'react-icons/hi';
 import { Link } from "react-router-dom";
 
 export const SearchPage = () => {
-     const {filteredSearch, viewHouse} = useContext(HouseContext);
-
+     const {filteredSearch, searchedText, viewHouse} = useContext(HouseContext);
+     
     return(
-        <div className="py-[50px] px-[20px] ">
+        <div className="py-[50px]  ">
             <div>
 {
     filteredSearch.length === 0 ?
     <h1 className="text-center mt-[50px] uppercase font-bold  text-[30px] ">Search for house</h1>
     :
     <div className="px-[20px] pt-[50px] py-[100px]">
+        <p className="capitalize font-semibold text-center my-[20px] text-[20px]">"{filteredSearch.length}" Result found for {searchedText}</p>
     <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
         {
                 filteredSearch.map(property => {

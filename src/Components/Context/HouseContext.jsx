@@ -8,6 +8,7 @@ export const HouseContext = createContext();
 export const HousesDetails = (props) => {
              const buyRent = [...diffHouses, ...diffRent];
              const [filteredSearch, setFilteredSearch] = useState([]);
+             const [searchedText, setSearchedText] = useState('');
              const [houseFeatures, setHouseFeatures] = useState(JSON.parse(localStorage.getItem('houseFeatures')) || []);
              useEffect(() => {
                 localStorage.setItem('houseFeatures', JSON.stringify(houseFeatures))
@@ -24,6 +25,7 @@ export const HousesDetails = (props) => {
                      filtered.location.toLocaleLowerCase().includes(searching.toLocaleLowerCase()) || filtered.amount.includes(searching)
                   ));
                   setFilteredSearch(searchResult);
+                  setSearchedText(searching);
                } 
                console.log(searching);
                console.log(filteredSearch);
@@ -31,7 +33,7 @@ export const HousesDetails = (props) => {
             
              
             return(
-                <HouseContext.Provider value={{viewHouse, filteredSearch, getSearch, houseFeatures}}>
+                <HouseContext.Provider value={{viewHouse, searchedText, filteredSearch, getSearch, houseFeatures}}>
                       {props.children}
                 </HouseContext.Provider>
             )
