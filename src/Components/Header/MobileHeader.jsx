@@ -63,8 +63,8 @@ const hideNav = () => {
             })
            }
            <div className="flex flex-col gap-2">
-            <NavLink className='bg-pink-500 max-w-[100px] uppercase py-1 rounded shadow-2xl text-[20px] px-[20px] '>Login</NavLink>
-            <NavLink className='bg-slate-50 max-w-[100px] text-slate-900 uppercase text-center font-[500] py-1 rounded shadow-2xl text-[20px] px-[20px] '>Signup</NavLink>
+            <NavLink onClick={hideNav} to='/login' className='bg-pink-500 max-w-[100px] uppercase py-1 rounded shadow-2xl text-[20px] px-[20px] '>Login</NavLink>
+            <NavLink onClick={hideNav} to='/signup' className='bg-slate-50 max-w-[100px] text-slate-900 uppercase text-center font-[500] py-1 rounded shadow-2xl text-[20px] px-[20px] '>Signup</NavLink>
            </div>
            </ul>
            <div className="flex gap-5 items-center">
