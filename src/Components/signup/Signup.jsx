@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import {AiOutlineMail} from 'react-icons/ai';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {FcGoogle} from 'react-icons/fc';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { auth } from "../../config/firebase";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup } from "firebase/auth";
 import { googleProvider } from "../../config/firebase";
 
 
 export const Signup = () => {
- 
+    const navig = useNavigate();
     const signInWithgoogleE = async () => {
         try {
             await signInWithPopup(auth, googleProvider);
+           
         } catch (error) {
             console.Console(error);
         }
@@ -26,10 +28,12 @@ export const Signup = () => {
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser)
     })
-    const register = async (e) => {
+    const register = async () => {
         
             try {
                 const user = await createUserWithEmailAndPassword(auth, inputs.email, inputs.password);
+             navig('/rent');
+             alert('suc');
                 console.log(user);
             } catch (error) {
                 console.log(error.message)
@@ -42,7 +46,7 @@ export const Signup = () => {
         } catch (error) {
             
         }
-    }*/
+    }
 
     const signout = async () => {
         try {
@@ -51,13 +55,14 @@ export const Signup = () => {
             
         }
     }
+    */
 
     return(
         <div className="py-[150px] px-[20px] ">
              <div className="flex flex-row justify-center">
              <div className="bg-slate-50 md:px-[70px]  flex flex-col  p-[20px] rounded shadow-2xl">
               <div>
-                <h1 className="text-center text-[25px] capitalize    mb-3">It's nice having you here {user?.email}!   </h1>
+                <h1 className="text-center text-[25px] capitalize    mb-3">It's nice having you here !   </h1>
                 <button onClick={signInWithgoogleE} className="flex text-center justify-center items-center my-5 gap-x-2 text-[20px] bg-pink-500 p-2 capitalize text-white rounded-[2px] font-[300]"><FcGoogle/> Signup with your google accout </button>
                 <p className="text-center capitalize mb-[20px] text-slate-900 text-[20px]">Or signup with email</p>
               </div>
