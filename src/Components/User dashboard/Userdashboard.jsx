@@ -8,6 +8,7 @@ import { HouseContext } from "../Context/HouseContext";
 import { SideLink } from "./SideLink";
 import { BuyHouse } from "../../Pages/Buy/Buy";
 import { SearchForm } from "../Search/Search";
+import { Link } from "react-router-dom";
 
 
 export const Userdashboard = () => {
@@ -31,21 +32,25 @@ export const Userdashboard = () => {
         <div className=" md:ml-[200px] flex items-end ml-[50px] justify-center  ">
          
           <div className="flex flex-col items-center justify-center  gap-[40px] ">
-          <p className="font-[400] capitalize text-center my-[30px] text-[20px] md:text-[30px] ">Hi <span className="font-bold italic">{newUser?.email}</span> ,  Welcome!</p>
+          <p className="font-[400] capitalize text-center  text-[20px] md:text-[30px] ">Hi <span className="font-bold uppercase">{newUser?.email}</span>👋</p>
           
-        <div className="grid gap-[20px] px-[40px] py-[20px]  md:grid-cols-3">
-         <div className="flex justify-center bg-gradient-to-r from-slate-900 to-sky-500 text-white min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow rounded  ">
+        <div className="grid gap-[20px] px-[40px] py-[10px]  md:grid-cols-2">
+         <Link to='/buy' className="flex justify-center bg-gradient-to-r from-slate-900 to-sky-500 text-white  md:min-w-[400px] min-w-[200px] w-full md:min-h-[200px] p-5 flex-col items-center gap-3 shadow rounded  ">
             <BsFillHouseAddFill className="text-[50px]"/>
             <p className="text-[20px] uppercase font-bold">Buy Home</p>
-         </div>
-         <div className="flex justify-center bg-gradient-to-r from-slate-900 to-sky-500 text-white min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow rounded  ">
+         </Link>
+         <Link to='/rent' className="flex justify-center bg-gradient-to-r from-slate-900 to-sky-500 text-white  md:min-w-[400px] min-w-[200px] md:min-h-[200px] p-5 flex-col items-center gap-3 shadow rounded  ">
             <MdBedroomParent className="text-[50px]"/>
             <p className="text-[20px] uppercase font-bold">Rent Home</p>
-         </div>
-         <div className="flex justify-center bg-gradient-to-r from-slate-900 to-sky-500 text-white min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow rounded  ">
+         </Link>
+         <Link to='/search' className="flex justify-center bg-gradient-to-r from-slate-900 to-sky-500 text-white  md:min-w-[400px] min-w-[200px] md:min-h-[200px] p-5 flex-col items-center gap-3 shadow rounded  ">
             <FaSearch className="text-[50px]"/>
             <p className="text-[20px] uppercase font-bold">Search For Home</p>
-         </div>
+         </Link>
+         <Link to='/contact' className="flex justify-center bg-gradient-to-r from-slate-900 to-sky-500 text-white  md:min-w-[400px] min-w-[200px] md:min-h-[200px] p-5 flex-col items-center gap-3 shadow rounded  ">
+            <FaSearch className="text-[50px]"/>
+            <p className="text-[20px] uppercase font-bold">Contact</p>
+         </Link>
         </div>
       
         </div>
