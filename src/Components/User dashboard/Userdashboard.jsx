@@ -26,15 +26,15 @@ export const Userdashboard = () => {
           <p className="font-[400] capitalize text-center my-[30px] text-[20px] md:text-[30px] ">Hi <span className="font-bold">{newUser?.email}</span> ,  Welcome !</p>
           
         <div className="grid gap-[20px] px-[40px] py-[20px]  md:grid-cols-3">
-         <div className="flex justify-center  min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow-2xl rounded  ">
+         <div className="flex justify-center  min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow rounded  ">
             <BsFillHouseAddFill className="text-[50px]"/>
             <p className="text-[20px] uppercase font-bold">Buy Home</p>
          </div>
-         <div className="flex justify-center md:min-w-[250px] min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow-2xl rounded  ">
+         <div className="flex justify-center md:min-w-[250px] min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow rounded  ">
             <MdBedroomParent className="text-[50px]"/>
             <p className="text-[20px] uppercase font-bold">Rent Home</p>
          </div>
-         <div className="flex justify-center min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow-2xl rounded  ">
+         <div className="flex justify-center min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow rounded  ">
             <FaSearch className="text-[50px]"/>
             <p className="text-[20px] uppercase font-bold">Search For Home</p>
          </div>
