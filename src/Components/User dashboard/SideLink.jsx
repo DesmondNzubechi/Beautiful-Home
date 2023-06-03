@@ -19,13 +19,13 @@ export const SideLink = () => {
     return(
         <div className="fixed left-0 top-0 bottom-0   px-[10px]  md:px-[40px] h-full md:px-[70px] bg-slate-900">
             <div>
-            <h1 className={`flex font-bold justify-center shadow-2xl absolute w-full left-0 text-center right-0 p-2  items-center text-[20px] text-white uppercase  `}><span className={`text-[20px] md:block ${sideLinkState} font-bold text-white   `}>Homebuilder</span>   <span className="flex ml-[10px] items-center "> {sideLinks.prevIc && <GrPrevious onClick={() => {
+            <h1 className={`flex font-bold justify-center shadow-2xl  w-full left-0 text-center right-0 p-2  items-center text-[20px] text-white uppercase  `}><span className={`text-[20px] md:block ${sideLinkState} font-bold text-white   `}>Homebuilder</span>   <span className="flex ml-[10px] items-center "> {sideLinks.prevIc && <GrPrevious onClick={() => {
                 setSideLinkState('hidden');
                 setSideLinks({prevIc:false, nextIc:true })
-            }} className="bg-slate-400  p-1 rounded text-[20px]"/>} <GrNext onClick={() => {
-                setSideLinkState('block');
+            }} className={`bg-slate-400  p-1 rounded text-[20px]`}/>} <GrNext onClick={() => {
+                setSideLinkState('flex');
                 setSideLinks({nextIc:false, prevIc:true,  })
-            }} className="bg-slate-400  p-1 rounded text-[20px]"/></span></h1>
+            }} className={`bg-slate-400  p-1 rounded text-[20px]`}/></span></h1>
                 <ul className="flex flex-col pt-[100px] gap-[40px]">
                     <li ><Link className="flex-row   flex items-center gap-x-2  "> <AiFillDashboard className="text-slate-100 text-[30px] " />  <span className={`text-[20px] md:block ${sideLinkState} font-bold text-white   `}>Dashboard</span> </Link></li>
                     <li><Link className="flex-row flex items-center gap-x-2  "><BsFillHouseAddFill className="text-slate-100 text-[30px] "/><span className={`text-[20px] md:block ${sideLinkState} text-white   `}>Buy</span> </Link></li>
