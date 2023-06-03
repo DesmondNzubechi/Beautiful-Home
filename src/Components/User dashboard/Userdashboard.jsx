@@ -21,7 +21,7 @@ export const Userdashboard = () => {
          
           <div className="flex flex-col items-center justify-center  gap-[40px] ">
          
-          <p className="font-[500] text-center text-[20px] md:text-[30px] ">Welcome !</p>
+          <p className="font-[500] text-center text-[20px] md:text-[30px] ">Welcome {newUser?.email}!</p>
         <div className="grid gap-[20px] px-[40px]  md:grid-cols-3">
          <div className="flex justify-center min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow-2xl rounded  ">
             <BsFillHouseAddFill className="text-[50px]"/>

@@ -22,20 +22,25 @@ export const HousesDetails = (props) => {
    const signInWithgoogleE = async () => {
        try {
            await signInWithPopup(auth, googleProvider);
-          
+           navig('/dashboard');
        } catch (error) {
-           console.Console(error);
+           eonsole.Console(error.message);
        }
    }
    const [inputs, setInputs] = useState({
-       email: '',
-       password: '',
+       signUpemail: '',
+       signUppassword: '',
+       signInemail: '',
+       signInpassword: '',
    });
 
    const [newUser, setNewUser] = useState({});
-   onAuthStateChanged(auth, (currentUser) => {
-       setNewUser(currentUser)
+   useEffect(() => {
+      onAuthStateChanged(auth, (currentUser) => {
+         setNewUser(currentUser)
+     }, [newUser])
    })
+
    const register = async () => {
        
            try {
@@ -53,7 +58,7 @@ export const HousesDetails = (props) => {
            await signInWithEmailAndPassword(auth, inputs.email, inputs.password);
            navig('/dashboard');
        } catch (error) {
-           
+           console.log(error)
        }
    }
 

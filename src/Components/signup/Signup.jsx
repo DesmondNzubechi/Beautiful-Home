@@ -21,11 +21,11 @@ export const Signup = () => {
                 <form action="" className="flex  flex-col gap-5">
                     <div className="flex flex-col items-start">
                         <label htmlFor="email" className="flex items-center text-slate-900 text-[15px]"><AiOutlineMail/>Email</label>
-                        <input onChange={(e) => setInputs({...inputs, email: e.target.value})} value={inputs.email} type="email" placeholder="nzubechukwu@gmail.com"  className="p-3 shadow rounded w-full outline-0 "/>
+                        <input onChange={(e) => setInputs({...inputs, signUpemail: e.target.value})} value={inputs.signUpemail} type="email" placeholder="nzubechukwu@gmail.com"  className="p-3 shadow rounded w-full outline-0 "/>
                     </div>
                     <div>
                     <label htmlFor="password" className="flex items-center text-slate-900 text-[15px] "><RiLockPasswordFill/>Password</label>
-                        <input onChange={(e) => setInputs({...inputs, password: e.target.value})} value={inputs.password} type="password" placeholder="******"  className="p-3 rounded outline-0 w-full shadow "/>
+                        <input onChange={(e) => setInputs({...inputs, signUppassword: e.target.value})} value={inputs.signUppassword} type="password" placeholder="******"  className="p-3 rounded outline-0 w-full shadow "/>
                     </div>
                   <button type="button" onClick={register} className="bg-green-500 rounded text-[17px] font-semibold p-3">Signup</button>
                   {/*<button type="button" onClick={signout} className="bg-green-500 rounded text-[17px] font-semibold p-3">Logout</button>*/}
