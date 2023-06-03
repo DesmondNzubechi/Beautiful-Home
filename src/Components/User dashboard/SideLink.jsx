@@ -12,10 +12,10 @@ import {GrNext, GrPrevious} from 'react-icons/gr';
 export const SideLink = () => {
 
     const [sideLinks, setSideLinks] = useState({
-        nextIc: false,
-        prevIc: true
+        nextIc: true,
+        prevIc: false
     })
-     const [sideLinkState, setSideLinkState] = useState('block');
+     const [sideLinkState, setSideLinkState] = useState('hidden');
     return(
         <div className="fixed left-0 top-0 bottom-0 z-[20]  px-[10px]  md:px-[40px] h-full md:px-[70px] bg-slate-900">
             <div>
