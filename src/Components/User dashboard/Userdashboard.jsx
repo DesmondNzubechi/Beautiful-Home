@@ -14,7 +14,7 @@ export const Userdashboard = () => {
       !newUser? navig('/login') :
         <div className="absolute  items-center top-0 w-full left-0 right-0 h-full bg-white z-[20]">
        <SideLink/>
-             <div className="flex w-full  md:px-[70px]  flex-row items-center gap-5 md:justify-between  p-5 bg-white">
+             <div className="flex w-full  md:px-[70px]  flex-row items-center gap-5 justify-between  p-5 bg-white">
          <h1 className="flex font-bold ml-[30px] items-center text-[20px] text-white uppercase  ">Homebuilder <BsFillHouseAddFill/></h1>
          <FaUserCircle className="text-[50px] shadow-2xl rounded-full"/>
          {/*
