@@ -21,7 +21,10 @@ export const SideLink = () => {
             <div>
             <h1 className={`flex font-bold justify-center shadow-2xl  w-full left-0 text-center right-0 p-2  items-center text-[20px] text-white uppercase  `}><span className={`text-[20px] md:block ${sideLinkState} font-bold text-white   `}>Homebuilder</span>   <span className="flex ml-[10px] items-center "> {sideLinks.prevIc && <GrPrevious onClick={() => {
                 setSideLinkState('hidden');
-                setSideLinks({prevIc:false, nextIc:true })
+                setSideLinks({
+                    nextIc: true,
+                    prevIc: false
+                })
             }} className={`bg-slate-400  p-1 rounded text-[20px]`}/>} <GrNext onClick={() => {
                 setSideLinkState('flex');
                 setSideLinks({nextIc:false, prevIc:true,  })
