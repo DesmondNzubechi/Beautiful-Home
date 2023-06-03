@@ -104,7 +104,7 @@ export const HousesDetails = (props) => {
             
              
             return(
-                <HouseContext.Provider value={{viewHouse, signInWithgoogleE, register, signin, signout, newUser, inputs, setInputs, searchedText, filteredSearch, getSearch, houseFeatures}}>
+                <HouseContext.Provider value={{viewHouse, navig, signInWithgoogleE, register, signin, signout, newUser, inputs, setInputs, searchedText, filteredSearch, getSearch, houseFeatures}}>
                       {props.children}
                 </HouseContext.Provider>
             )

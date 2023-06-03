@@ -10,8 +10,9 @@ import { HouseContext } from "../Context/HouseContext";
 
 export const Userdashboard = () => {
 
-    const {newUser, signout} = useContext(HouseContext);
+    const {newUser, signout, navig} = useContext(HouseContext);
     return(
+      !newUser? navig('/login') :
         <div className="absolute  items-center top-0 w-full left-0 right-0 h-full bg-white z-[20]">
              <div className="flex w-full  flex-row items-center gap-5 justify-between p-5 bg-Tp">
          <h1 className="flex font-bold items-center text-[20px] text-white uppercase  ">Homebuilder <BsFillHouseAddFill/></h1>
@@ -39,5 +40,6 @@ export const Userdashboard = () => {
         </div>
         </div>
         </div>
+        
     )
 }
