@@ -23,7 +23,7 @@ export const Userdashboard = () => {
         <div className=" md:ml-[200px] flex items-end ml-[50px] justify-center  ">
          
           <div className="flex flex-col items-center justify-center  gap-[40px] ">
-          <p className="font-[400] capitalize text-center my-[30px] text-[20px] md:text-[30px] ">Hi <span className="font-bold">{newUser?.email}</span> ,  Welcome !</p>
+          <p className="font-[400] capitalize text-center my-[30px] text-[20px] md:text-[30px] ">Hi <span className="font-bold italic">{newUser?.email}</span> ,  Welcome!</p>
           
         <div className="grid gap-[20px] px-[40px] py-[20px]  md:grid-cols-3">
          <div className="flex justify-center  min-w-[200px] min-h-[150px] p-5 flex-col items-center gap-3 shadow rounded  ">
