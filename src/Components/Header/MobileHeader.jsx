@@ -36,7 +36,7 @@ const linking = [
 ]
 
 export const MobileHeader = () => {
-const {getSearch} = useContext(HouseContext);
+const {getSearch, newUser} = useContext(HouseContext);
 
 const [showLink, setShowLink] = useState('left-[-1000px]');
 const [icons, setIcons] = useState({hideicon: false, showIcon: true});
@@ -49,6 +49,7 @@ const hideNav = () => {
     setShowLink('left-[-1000px]');
 }
     return(
+        !newUser &&
         <>
         <div className="bg-slate-900 md:hidden px-[20px] gap-5 z-[5] items-center fixed top-0 w-full text-slate-50 flex flex-row justify-around py-[10px]  ">
             <div className="relative z-[1]  font-bold uppercase text-[15px]"><NavLink to='/' className='flex items-center flex-row' >Homebuilder<BsFillHouseCheckFill/></NavLink></div>

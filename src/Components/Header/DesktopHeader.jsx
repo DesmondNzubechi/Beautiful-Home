@@ -33,15 +33,17 @@ const linking = [
 ]
 
 export const DesktopHeader = () => {
-    const {getSearch} = useContext(HouseContext);
+    const {getSearch, newUser} = useContext(HouseContext);
 
     return(
+        !newUser &&
         <>
         <div className="bg-slate-900 px-[20px] gap-5 z-[5] items-center fixed top-0 w-full text-slate-50 hidden md:flex md:flex-row justify-between px-[20px] py-[20px]  ">
             <div className=" flex flex-row gap-3 font-bold uppercase text-[20px]"><NavLink className='flex items-center flex-row' to='/'>Homebuilder<BsFillHouseCheckFill/></NavLink> 
             <NavLink to='/search-result'>
             <input onChange={(e) => getSearch(e)} className=" rounded w-full   text-slate-500 py-[5px] text-center outline-0 " placeholder="Search For Home" type="text"  />
             </NavLink>
+            
 </div>
 
 <div className="flex flex-row gap-4 ">

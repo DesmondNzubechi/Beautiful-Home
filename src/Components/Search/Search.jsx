@@ -5,10 +5,10 @@ import {FaBed, FaBath, FaMoneyCheckAlt} from 'react-icons/fa';
 import {AiTwotoneCar} from 'react-icons/ai';
 import { MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const SearchPage = () => {
-     const {filteredSearch, searchedText, viewHouse} = useContext(HouseContext);
+     const {filteredSearch, getSearch, searchedText, viewHouse} = useContext(HouseContext);
      
     return(
         <div className="py-[50px]  ">
@@ -54,5 +54,14 @@ export const SearchPage = () => {
 }
             </div>
         </div>
+    )
+}
+
+
+export const SearchForm = () => {
+    return(
+        <NavLink to='/search-result' className='w-full'>
+        <input onChange={(e) => getSearch(e) } className="w-full border-b-2 border-slate-400 relative z-[5]  text-[20px]  text-slate-500 py-[10px] text-center bg-transparent px-[10px] outline-0 " placeholder="Search here " type="text"  />
+     </NavLink> 
     )
 }
