@@ -18,10 +18,10 @@ export const Userdashboard = () => {
       !newUser? navig('/login') :
         <div className="absolute  items-center top-0 w-full left-0 right-0 h-full bg-white z-[20]">
        <SideLink/>
-             <div className="flex w-full fixed ml-[10px]  top-0 right-0 left-0 md:px-[70px]  flex-row items-center  gap-5 p-5 bg-white">
-         <h1 className="flex font-bold  items-center text-[20px]  uppercase text-white "></h1>
-      <SearchForm />
-       <FaUserCircle onClick={() => {logoutB? setLogoutB(false):setLogoutB(true)}} className="text-[50px] active:text-slate-900 text-slate-500   shadow-2xl rounded-full"/>
+             <div className="flex  flex-row items-center  gap-5 p-5 bg-white">
+         <h1 className="flex font-bold  items-center text-[20px]  uppercase text-white ">bhj</h1>
+    
+       <FaUserCircle onClick={() => {logoutB? setLogoutB(false):setLogoutB(true)}} className="text-[50px] fixed top-5 right-5  active:text-slate-900 text-slate-500   shadow-2xl rounded-full"/>
        {logoutB &&  <div className=" fixed flex flex-col gap-2 rounded shadow-2xl top-[70px] bg-slate-900 p-3 right-5 "> 
      { /* <button onClick={signout} className=' shadow-2xl text-slate-50 uppercase py-1 rounded shadow-2xl text-[20px]  '>profile</button>
        <hr />*/}

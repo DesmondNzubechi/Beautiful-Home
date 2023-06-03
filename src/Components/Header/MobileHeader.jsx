@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import  { HiOutlineBars3, HiXMark } from 'react-icons/hi2';
 import { BsFillHouseCheckFill } from 'react-icons/bs';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch,  } from 'react-icons/fa';
+import {FaUserCircle} from 'react-icons/fa';
 import { useContext } from "react";
 import { HouseContext } from "../Context/HouseContext";
 
@@ -49,7 +50,7 @@ const hideNav = () => {
     setShowLink('left-[-1000px]');
 }
     return(
-        !newUser &&
+        
         <>
         <div className="bg-slate-900 md:hidden px-[20px] gap-5 z-[5] items-center fixed top-0 w-full text-slate-50 flex flex-row justify-around py-[10px]  ">
             <div className="relative z-[1]  font-bold uppercase text-[15px]"><NavLink to='/' className='flex items-center flex-row' >Homebuilder<BsFillHouseCheckFill/></NavLink></div>
@@ -63,9 +64,15 @@ const hideNav = () => {
                 return <li><NavLink onClick={hideNav} style={({isActive}) => { return isActive? {borderBottom: '2px solid white'} : {} }} className='text-slate-200 text-[20px] font-[500] ' to={linkss.link}>{linkss.name}</NavLink></li>
             })
            }
+           <div className="flex flex-col ">
+            {!newUser &&
            <div className="flex flex-col gap-2">
             <NavLink onClick={hideNav} to='/login' className='bg-pink-500 max-w-[100px] uppercase py-1 rounded shadow-2xl text-[20px] px-[20px] '>Login</NavLink>
             <NavLink onClick={hideNav} to='/signup' className='bg-slate-50 max-w-[100px] text-slate-900 uppercase text-center font-[500] py-1 rounded shadow-2xl text-[20px] px-[20px] '>Signup</NavLink>
+           </div>
+}
+          {newUser && <NavLink onClick={hideNav} to='/dashboard' className=' my-[10px] w-fit rounded-full  text-slate-300 active:text-white  uppercase text-center font-[500] py-1 rounded shadow-2xl text-[50px] p-2'><FaUserCircle className="shadow-2xl"/></NavLink>
+}
            </div>
            </ul>
            <div className="flex gap-5 items-center">
