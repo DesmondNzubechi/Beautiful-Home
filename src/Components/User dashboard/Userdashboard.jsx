@@ -20,7 +20,7 @@ export const Userdashboard = () => {
          {/*
        <button onClick={signout} className='bg-red-700 shadow-2xl text-slate-50 uppercase py-1 rounded shadow-2xl text-[20px] px-[20px] '></button>*/}
          </div>
-        <div className=" md:ml-[200px] flex items-end ml-[100px] justify-center  ">
+        <div className=" md:ml-[200px] flex items-end ml-[50px] justify-center  ">
          
           <div className="flex flex-col items-center justify-center  gap-[40px] ">
           <p className="font-[400] capitalize text-center my-[30px] text-[20px] md:text-[30px] ">Hi <span className="font-bold">{newUser?.email}</span> ,  Welcome !</p>
