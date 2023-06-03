@@ -17,7 +17,7 @@ export const SideLink = () => {
     })
      const [sideLinkState, setSideLinkState] = useState('hidden');
     return(
-        <div className="fixed left-0 top-0 bottom-0 z-[20]  px-[10px]  md:px-[40px] h-full md:px-[70px] bg-slate-900">
+        <div className="fixed left-0 top-0 bottom-0 z-[20]  px-[10px]  md:px-[40px] h-[100vh] md:px-[70px] bg-slate-900">
             <div>
             <h1 className={`flex font-bold justify-center shadow-2xl  w-full left-0 text-center right-0 p-2  items-center text-[20px] text-white uppercase  `}><span className={`text-[20px]  ${sideLinkState} font-bold text-white   `}>Homebuilder</span>   <span className="flex ml-[10px] items-center "> {sideLinks.prevIc && <GrPrevious onClick={() => {
                 setSideLinkState('hidden');
