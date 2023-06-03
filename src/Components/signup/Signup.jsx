@@ -3,60 +3,12 @@ import {AiOutlineMail} from 'react-icons/ai';
 import {RiLockPasswordFill} from 'react-icons/ri';
 import {FcGoogle} from 'react-icons/fc';
 import { Link, useNavigate } from "react-router-dom";
-
-import { auth } from "../../config/firebase";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup } from "firebase/auth";
-import { googleProvider } from "../../config/firebase";
-
+import { useContext } from "react";
+import { HouseContext } from "../Context/HouseContext";
 
 export const Signup = () => {
-    const navig = useNavigate();
-    const signInWithgoogleE = async () => {
-        try {
-            await signInWithPopup(auth, googleProvider);
-           
-        } catch (error) {
-            console.Console(error);
-        }
-    }
-    const [inputs, setInputs] = useState({
-        email: '',
-        password: '',
-    });
-
-    const [user, setUser] = useState({});
-    onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser)
-    })
-    const register = async () => {
-        
-            try {
-                const user = await createUserWithEmailAndPassword(auth, inputs.email, inputs.password);
-             navig('/rent');
-             alert('suc');
-                console.log(user);
-            } catch (error) {
-                console.log(error.message)
-            }
-    }
-/*
-    const signin = async () => {
-        try {
-            await signInWithEmailAndPassword(auth, inputs.email, inputs.password);
-        } catch (error) {
-            
-        }
-    }
-
-    const signout = async () => {
-        try {
-            await signOut(auth);
-        } catch (error) {
-            
-        }
-    }
-    */
-
+    const {register, inputs, setInputs, signInWithgoogleE} = useContext(HouseContext);
+   
     return(
         <div className="py-[150px] px-[20px] ">
              <div className="flex flex-row justify-center">

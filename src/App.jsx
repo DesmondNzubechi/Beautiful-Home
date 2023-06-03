@@ -11,6 +11,7 @@ import { ScrollToTop } from './Components/ScrollTop/Scrolltop';
 import { SearchPage } from './Components/Search/Search';
 import { Login } from './Components/Login/login';
 import { Signup } from './Components/signup/Signup';
+import { Userdashboard } from './Components/User dashboard/Userdashboard';
 function App() {
   return (
     <BrowserRouter>
@@ -27,7 +28,9 @@ function App() {
     <Route path='/Property-full-details' element={<PropertyDetails/>}/>
     <Route path='/login' element={<Login/>} />
     <Route path='/signup' element={<Signup/>} />
+    <Route path='/dashboard' element={ <Userdashboard/>} />
       </Routes>
+     
     </div>
     </HousesDetails>
     </BrowserRouter>
