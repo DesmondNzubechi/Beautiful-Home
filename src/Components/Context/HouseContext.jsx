@@ -44,7 +44,7 @@ export const HousesDetails = (props) => {
    const register = async () => {
        
            try {
-               const user = await createUserWithEmailAndPassword(auth, inputs.email, inputs.password);
+               const user = await createUserWithEmailAndPassword(auth, inputs.signUpemail, inputs.signUppassword);
             navig('/dashboard');
            
                console.log(user);
@@ -55,7 +55,7 @@ export const HousesDetails = (props) => {
 
    const signin = async () => {
        try {
-           await signInWithEmailAndPassword(auth, inputs.email, inputs.password);
+           await signInWithEmailAndPassword(auth, inputs.signInemail, inputs.signInpassword);
            navig('/dashboard');
        } catch (error) {
            console.log(error)
