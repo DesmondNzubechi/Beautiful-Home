@@ -30,7 +30,7 @@ function App() {
     <Route path='/signup' element={<Signup/>} />
     <Route path='/dashboard' element={ <Userdashboard/>} />
       </Routes>
-     
+   
     </div>
     </HousesDetails>
     </BrowserRouter>

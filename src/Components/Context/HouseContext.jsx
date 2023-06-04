@@ -65,7 +65,7 @@ export const HousesDetails = (props) => {
    const signout = async () => {
        try {
            await signOut(auth);
-           navig('/');
+           navig('/login');
        } catch (error) {
            
        }
