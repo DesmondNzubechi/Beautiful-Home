@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+/*import React, { useEffect, useState } from "react";
 import { storage } from "../../config/firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
@@ -44,7 +44,7 @@ export const ImgUpload = () => {
           }
         </div>
     )
-    */
+    
     const  [houses, setHouses] = useState([]);
     const houseCollectionRef = collection(db, 'lekki');
     useEffect(() => {
@@ -102,4 +102,4 @@ export const ImgUpload = () => {
     })}
     </div>
    )
-}
+}*/
