@@ -13,6 +13,7 @@ export const RentHouse = () => {
     const  {viewHouse} = useContext(HouseContext);
     return(
         <div>
+            
         <div  data-aos='fade-up' aos-data-duration='2000'
     style={{ backgroundImage: `url(${bgImg})` }}
   className={`min-h-[50vh] relative after:left-0 after:right-0 after:absolute after:top-0 after:h-full bg-center flex items-center after:w-full after:bg-bgT pt-[50px]  px-[30px] bg-cover z-[1]  `}>

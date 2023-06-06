@@ -107,7 +107,9 @@ export const ImgUpload = () => {
     }
 
    return(
+   
     <div className=" px-[20px] py-[50px] items-center gap-5 flex flex-col md:flex-row justify-around">
+        {/*
     <div className="  grid md:grid-cols-2 gap-5  w-full ">
     <div className="flex flex-col w-full  items-start gap-0">
     <label className="text-slate-800 font-semibold text-[20px] " htmlFor="category">Choose Category:</label>
@@ -175,7 +177,8 @@ export const ImgUpload = () => {
         } className="bg-slate-100 p-2 h-[250px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
        <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Uploade Infomation</button>
        </div>
-   
+    */}
     </div>
+
    )
 }
