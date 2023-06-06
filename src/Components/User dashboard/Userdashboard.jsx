@@ -32,7 +32,7 @@ export const Userdashboard = () => {
         <div className=" md:ml-[200px] pb-[100px] flex items-end ml-[50px] justify-center  ">
          
           <div className="flex flex-col items-center justify-center  gap-[40px] ">
-          <p className="font-[400] capitalize text-center  text-[20px] md:text-[30px] ">Hi <span className="font-bold block uppercase">{newUser?.email}</span>👋</p>
+          <p className="font-[400] capitalize text-center  text-[20px] md:text-[30px] ">Hi <span className="font-bold  uppercase">{newUser?.email}</span>👋</p>
           
         <div className="grid gap-[20px] px-[40px] py-[10px]  md:grid-cols-2">
          <Link to='/buy' className="flex justify-center bg-gradient-to-r from-slate-900 to-sky-500 text-white  md:min-w-[400px] min-w-[200px] w-full md:min-h-[200px] p-5 flex-col items-center gap-3 shadow rounded  ">

@@ -12,7 +12,7 @@ import { SearchPage } from './Components/Search/Search';
 import { Login } from './Components/Login/login';
 import { Signup } from './Components/signup/Signup';
 import { Userdashboard } from './Components/User dashboard/Userdashboard';
-
+import { ImgUpload } from './Components/Admindashboard/Admindashboard';
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
     <Route path='/signup' element={<Signup/>} />
     <Route path='/dashboard' element={ <Userdashboard/>} />
       </Routes>
-   
+    <ImgUpload/>
     </div>
     </HousesDetails>
     </BrowserRouter>

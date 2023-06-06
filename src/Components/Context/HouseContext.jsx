@@ -40,9 +40,7 @@ export const HousesDetails = (props) => {
          setNewUser(currentUser)
      }, [newUser])
    })
-
    const register = async () => {
-       
            try {
                const user = await createUserWithEmailAndPassword(auth, inputs.signUpemail, inputs.signUppassword);
             navig('/dashboard');
@@ -52,7 +50,6 @@ export const HousesDetails = (props) => {
                console.log(error.message)
            }
    }
-
    const signin = async () => {
        try {
            await signInWithEmailAndPassword(auth, inputs.signInemail, inputs.signInpassword);
