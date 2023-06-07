@@ -11,7 +11,7 @@ export const ImgUpload = () => {
      const [imgFolder, setImgFolder] = useState('');
      const imageListRef = ref(storage, `/${imgFolder}`);
 
-
+/*
      const UploadImg = () => {
           if (newImgs === null) return;
           const imgRef = ref(storage, `${imgFolder}/${newImgs.name + v4()}`);
@@ -21,8 +21,36 @@ export const ImgUpload = () => {
             })
           })
      }
-
-     
+*/
+     const UploadImg = () => {
+        if (newImgs === null) return;
+      
+        const folderRef = ref(storage, imgFolder);
+        listAll(folderRef)
+          .then((folderSnapshot) => {
+            if (folderSnapshot.items.length === 0) {
+              // Folder doesn't exist, create a new folder
+              return uploadBytes(folderRef, null);
+            }
+            return Promise.resolve();
+          })
+          .then(() => {
+            const imgRef = ref(storage, `${imgFolder}/${newImgs.name + v4()}`);
+            return uploadBytes(imgRef, newImgs);
+            alert('succesfull');
+          })
+          .then((snapshot) => {
+            getDownloadURL(snapshot.ref).then((url) => {
+              setImgList((prev) => [...prev, url]);
+            });
+          })
+          .catch((error) => {
+            console.error('Error uploading image:', error);
+            alert(error);
+            // Handle error if necessary
+          });
+      };
+      
      useEffect(() => {
        listAll(imageListRef).then((response) => {
         response.items.forEach(item => {
@@ -37,21 +65,19 @@ export const ImgUpload = () => {
     return(
         <div>
             <div>
-                <input type="text" onChange={(e) => setImgFolder(e.target.valur)} value={imgFolder} />
+                <input type="text" className="border" onChange={(e) => setImgFolder(e.target.value)} value={imgFolder} />
                 <input onChange={(e) => {
-                    setNewImg(e.target.files[0]);
+                    setNewImgs(e.target.files[0]);
                 }} type="file" name="" id="" />
                 <button onClick={UploadImg}>Upload</button>
             </div>
           {
             imgList.map(url => {
-              //  return <img src={url} alt="" />
+               return <img src={url} alt="" />
             })
           }
         </div>
-    )
-    */
-    const  [houses, setHouses] = useState([]);
+    )*/
     const [newHouse, setNewHouse] = useState({
         category: '',
         location: '',
@@ -61,10 +87,11 @@ export const ImgUpload = () => {
         park: null,
         kitchen: null,
         fullDescr: '',
-        pictures: '',
+        pictures: imgList,
   
     });
-   useEffect(() => {
+
+   /*useEffect(() => {
      const getHouses = async () => {
         try {
             const data = await getDocs(houseCollectionRef);
@@ -77,9 +104,8 @@ export const ImgUpload = () => {
      };
      getHouses();
     }, []);
-
+*/
     const createHouse = async () => {
-        const houseCollectionRef = collection(db, `${newHouse.category}`);
         if (newHouse.location  === '' ||
              newHouse.bed === null ||
               newHouse.amount === null ||
@@ -90,6 +116,12 @@ export const ImgUpload = () => {
                   newHouse.category === '' ) {
             return;
         }
+        if (imgList <= 0) {
+            alert('Upload Image First');
+            return;
+        };
+        const houseCollectionRef = collection(db, `${newHouse.category}`);
+
         try {
            await addDoc(houseCollectionRef, {
             location: newHouse.location,
@@ -99,6 +131,7 @@ export const ImgUpload = () => {
             park: newHouse.park,
             kitchen: newHouse.kitchen,
             fullDescr : newHouse.fullDescr,
+            pictures : imgList,
            });
            alert('succesful')
         } catch (error) {
@@ -109,7 +142,7 @@ export const ImgUpload = () => {
    return(
    
     <div className=" px-[20px] py-[50px] items-center gap-5 flex flex-col md:flex-row justify-around">
-        {/*
+        
     <div className="  grid md:grid-cols-2 gap-5  w-full ">
     <div className="flex flex-col w-full  items-start gap-0">
     <label className="text-slate-800 font-semibold text-[20px] " htmlFor="category">Choose Category:</label>
@@ -124,13 +157,15 @@ export const ImgUpload = () => {
        <div className="flex flex-row  items-end gap-5">
         <div>
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Image:</label>
-        <input className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="file" name="" id="" />
+        <input onChange={(e) => {
+                    setNewImgs(e.target.files[0]);
+                }} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="file" name="" id="" />
         </div>
         <div>
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Folder:</label>
         <input onChange={(e) => setImgFolder(e.target.value)} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
         </div>
-        <button className="bg-green-500 p-2 rounded font-bold">Upload</button>
+        <button onClick={UploadImg} className="bg-green-500 p-2 rounded font-bold">Upload</button>
        </div>
        <div className="flex flex-col items-start gap-0">
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="location">Property Location:</label>
@@ -177,7 +212,7 @@ export const ImgUpload = () => {
         } className="bg-slate-100 p-2 h-[250px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
        <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Uploade Infomation</button>
        </div>
-    */}
+   
     </div>
 
    )

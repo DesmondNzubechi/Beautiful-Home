@@ -1,3 +1,4 @@
+import {collection,  getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase/firestore';
 //importing image from first house
 import firstHouse1 from '../../assets/images/Rent/rent1/img1.webp';
 import firstHouse2 from '../../assets/images/Rent/rent1/img2.webp';
@@ -150,6 +151,7 @@ import seventeenHouse1 from '../../assets/images/Rent/rent17/img6.webp';
 
 
 export const diffRent = [
+    
     {
         location: 'Paris Home',
         amount: '$700,000',

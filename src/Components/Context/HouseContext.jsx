@@ -24,7 +24,7 @@ export const HousesDetails = (props) => {
            await signInWithPopup(auth, googleProvider);
            navig('/dashboard');
        } catch (error) {
-           eonsole.Console(error.message);
+           console.Console(error.message);
        }
    }
    const [inputs, setInputs] = useState({
