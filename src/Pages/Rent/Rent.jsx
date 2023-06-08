@@ -51,7 +51,8 @@ export const RentHouse = () => {
                 diffRentH.map(property => {
                     return(
                         <div className="shadow-2xl max-w-[400px] relative rounded  ">
-                        <div className=" " ><img src={property.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>
+                            {console.log(property.pictures[0])}
+                        <div className=" " ><img src={property.pictures[0]} alt="" className="rounded-t w-full md:h-[300px] " /></div>
                          <div className=" flex flex-col rounded-b  bg-white bottom-0 w-full gap-1">
                              <div className="flex flex-row px-2 py-1 justify-between">
                                  <div className="flex flex-row gap-1 items-center ">
