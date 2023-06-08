@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {FaBed, FaBath, FaMoneyCheckAlt} from 'react-icons/fa';
 import {AiTwotoneCar} from 'react-icons/ai';
 import { MdSoupKitchen } from 'react-icons/md';
@@ -8,9 +8,31 @@ import { Link } from "react-router-dom";
 import { HouseContext } from "../../Components/Context/HouseContext";
 import { useContext } from "react";
 import { diffRent } from "./RentingHouses";
+import { collection, doc,  getDocs } from "firebase/firestore";
+import { db } from "../../config/firebase";
+import { useEffect } from "react";
+import { ref } from "firebase/storage";
 
 export const RentHouse = () => {
     const  {viewHouse} = useContext(HouseContext);
+    const  [houses, setHouses] = useState([]);
+    const diffRentH = [...diffRent,  ...houses]
+
+    const dataStorage = collection(db, 'rent');
+    useEffect(() => {
+        const getHouses = async () => {
+           try {
+               const data = await getDocs(dataStorage);
+           console.log(data);
+           setHouses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+           console.log(houses);
+           } catch (error) {
+               console.log(error);
+           }
+        };
+        getHouses();
+       }, []);
+
     return(
         <div>
             
@@ -26,7 +48,7 @@ export const RentHouse = () => {
         <div className="px-[20px] pt-[150px] py-[100px]">
            <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
             {
-                diffRent.map(property => {
+                diffRentH.map(property => {
                     return(
                         <div className="shadow-2xl max-w-[400px] relative rounded  ">
                         <div className=" " ><img src={property.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>

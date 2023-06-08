@@ -4,8 +4,12 @@ import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import { db } from "../../config/firebase";
 import {collection,  getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase/firestore';
-export const ImgUpload = () => {
-    
+import { useContext } from "react";
+import { HouseContext } from "../Context/HouseContext";
+
+
+export const AdminDashboard = () => {
+  const {newUser, signout, navig} = useContext(HouseContext);
     const [imgList, setImgList] = useState([]);
      const [newImgs, setNewImgs] = useState([]);
      const [imgFolder, setImgFolder] = useState('');
@@ -61,23 +65,7 @@ export const ImgUpload = () => {
         console.log(response)
        })
      }, [])
-/*
-    return(
-        <div>
-            <div>
-                <input type="text" className="border" onChange={(e) => setImgFolder(e.target.value)} value={imgFolder} />
-                <input onChange={(e) => {
-                    setNewImgs(e.target.files[0]);
-                }} type="file" name="" id="" />
-                <button onClick={UploadImg}>Upload</button>
-            </div>
-          {
-            imgList.map(url => {
-               return <img src={url} alt="" />
-            })
-          }
-        </div>
-    )*/
+
     const [newHouse, setNewHouse] = useState({
         category: '',
         location: '',
@@ -87,10 +75,12 @@ export const ImgUpload = () => {
         park: null,
         kitchen: null,
         fullDescr: '',
-        pictures: imgList,
+        pictures: [...imgList],
   
     });
 
+    console.log(newHouse.pictures)
+    console.log(imgList)
    /*useEffect(() => {
      const getHouses = async () => {
         try {
@@ -106,6 +96,10 @@ export const ImgUpload = () => {
     }, []);
 */
     const createHouse = async () => {
+      if (imgList <= 0) {
+        alert('Upload Image First');
+        return;
+    };
         if (newHouse.location  === '' ||
              newHouse.bed === null ||
               newHouse.amount === null ||
@@ -116,10 +110,7 @@ export const ImgUpload = () => {
                   newHouse.category === '' ) {
             return;
         }
-        if (imgList <= 0) {
-            alert('Upload Image First');
-            return;
-        };
+    
         const houseCollectionRef = collection(db, `${newHouse.category}`);
 
         try {
@@ -133,14 +124,15 @@ export const ImgUpload = () => {
             fullDescr : newHouse.fullDescr,
             pictures : imgList,
            });
+           console.log(pictures);
            alert('succesful')
         } catch (error) {
             alert(error)
         }
     }
 
-   return(
-   
+    return(
+      !newUser? navig('/login') :
     <div className=" px-[20px] py-[50px] items-center gap-5 flex flex-col md:flex-row justify-around">
         
     <div className="  grid md:grid-cols-2 gap-5  w-full ">
@@ -212,7 +204,14 @@ export const ImgUpload = () => {
         } className="bg-slate-100 p-2 h-[250px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
        <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Uploade Infomation</button>
        </div>
-   
+       <div>
+    
+          {
+           imgList.map(url => {
+               return <img src={url} alt="" />
+            })
+          }
+        </div>
     </div>
 
    )

@@ -12,11 +12,6 @@ export const HouseContext = createContext();
 
 export const HousesDetails = (props) => {
 
-
-
-
-
-
    const navig = useNavigate();
 
    const signInWithgoogleE = async () => {
@@ -53,7 +48,11 @@ export const HousesDetails = (props) => {
    const signin = async () => {
        try {
            await signInWithEmailAndPassword(auth, inputs.signInemail, inputs.signInpassword);
-           navig('/dashboard');
+           if (inputs.signInemail === 'nzubestdesmond@gmail.com') {
+            navig('/admin');
+           } else {
+            navig('/dashboard');
+           }
        } catch (error) {
            console.log(error)
        }
