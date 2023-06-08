@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {FaBed, FaBath, FaMoneyCheckAlt} from 'react-icons/fa';
 import {AiTwotoneCar} from 'react-icons/ai';
 import { MdSoupKitchen } from 'react-icons/md';
@@ -8,10 +8,30 @@ import { Link } from "react-router-dom";
 import { HouseContext } from "../../Components/Context/HouseContext";
 import { useContext } from "react";
 import { diffHouses } from "./BuyingHouse";
+import { collection, doc,  getDocs } from "firebase/firestore";
+import { db } from "../../config/firebase";
+import { useEffect } from "react";
 
 
 export const BuyHouse = () => {
     const  {viewHouse} = useContext(HouseContext);
+    const [houses, setHouses] = useState([])
+    const diffHousesSell = [...diffHouses, ...houses ]
+
+    const dataStorage = collection(db, 'rent');
+    useEffect(() => {
+        const getHouses = async () => {
+           try {
+               const data = await getDocs(dataStorage);
+           console.log(data);
+           setHouses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+           console.log(houses);
+           } catch (error) {
+               console.log(error);
+           }
+        };
+        getHouses();
+       }, []);
     return(
         <div>
             <div  data-aos='fade-up' aos-data-duration='2000'
@@ -26,7 +46,7 @@ export const BuyHouse = () => {
       <div className="px-[20px] pt-[150px] py-[100px]">
            <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
             {
-                diffHouses.map(property => {
+                diffHousesSell.map(property => {
                     return(
                         <div className="shadow-2xl max-w-[400px] relative rounded  ">
                         <div className=" " ><img src={property.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>
