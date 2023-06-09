@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { storage } from "../../config/firebase";
-import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes,  listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import { db } from "../../config/firebase";
 import {collection,  getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase/firestore';
@@ -10,52 +10,69 @@ import { HouseContext } from "../Context/HouseContext";
 
 export const AdminDashboard = () => {
   const {newUser, signout, navig} = useContext(HouseContext);
+    const [imgFolder, setImgFolder] = useState('');
     const [imgList, setImgList] = useState([]);
+   /* useEffect(() => {
+      localStorage.setItem("imgList", JSON.stringify(imgList))
+    }, [imgList])*/
      const [newImgs, setNewImgs] = useState([]);
-     const [imgFolder, setImgFolder] = useState('');
-     const imageListRef = ref(storage, `/${imgFolder}`);
+     const [newHouse, setNewHouse] = useState({
+      category: '',
+      location: '',
+      amount: null,
+      bed: null,
+      bath: null,
+      park: null,
+      kitchen: null,
+      fullDescr: '',
+      pictures: [...imgList],
 
-/*
+  });
+
      const UploadImg = () => {
-          if (newImgs === null) return;
-          const imgRef = ref(storage, `${imgFolder}/${newImgs.name + v4()}`);
-          uploadBytes(imgRef, newImgs).then((snapshot) => {
-            getDownloadURL(snapshot.ref).then(url => {
-            setImgList((prev) => [...prev, ])
-            })
-          })
-     }
-*/
-     const UploadImg = () => {
-        if (newImgs === null) return;
+      if (newImgs === null || imgFolder === '') return;
       
         const folderRef = ref(storage, imgFolder);
         listAll(folderRef)
           .then((folderSnapshot) => {
             if (folderSnapshot.items.length === 0) {
-              // Folder doesn't exist, create a new folder
+              //If folder doesn't exist, create a new folder
               return uploadBytes(folderRef, null);
             }
             return Promise.resolve();
           })
           .then(() => {
             const imgRef = ref(storage, `${imgFolder}/${newImgs.name + v4()}`);
-            return uploadBytes(imgRef, newImgs);
+            uploadBytes(imgRef, newImgs);
+
+            listAll(folderRef).then((response) => {
+              response.items.forEach(item => {
+                  getDownloadURL(item).then(url => {
+                      setImgList((prev) => [...prev, url]);
+                  })
+              })
+              console.log(response)
+             });
+             setNewHouse({...newHouse, pictures: imgList});
             alert('succesfull');
           })
-          .then((snapshot) => {
+       /*   .then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
               setImgList((prev) => [...prev, url]);
             });
-          })
+          })*/
           .catch((error) => {
             console.error('Error uploading image:', error);
-            alert(error);
+            alert(error.message);
             // Handle error if necessary
           });
       };
+      if (imgFolder  !== '') {
+        
+      }
       
      useEffect(() => {
+      const imageListRef = ref(storage, `/${imgFolder}`);
        listAll(imageListRef).then((response) => {
         response.items.forEach(item => {
             getDownloadURL(item).then(url => {
@@ -66,40 +83,17 @@ export const AdminDashboard = () => {
        })
      }, [])
 
-    const [newHouse, setNewHouse] = useState({
-        category: '',
-        location: '',
-        amount: null,
-        bed: null,
-        bath: null,
-        park: null,
-        kitchen: null,
-        fullDescr: '',
-        pictures: [...imgList],
-  
-    });
-
     console.log(newHouse.pictures)
     console.log(imgList)
-   /*useEffect(() => {
-     const getHouses = async () => {
-        try {
-            const data = await getDocs(houseCollectionRef);
-        console.log(data);
-        setHouses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-        console.log(houses);
-        } catch (error) {
-            console.log(error);
-        }
-     };
-     getHouses();
-    }, []);
-*/
     const createHouse = async () => {
       if (imgList <= 0) {
         alert('Upload Image First');
         return;
     };
+    if (!imgFolder) {
+      alert('Input Image folder name');
+      return;
+    }
         if (newHouse.location  === '' ||
              newHouse.bed === null ||
               newHouse.amount === null ||
@@ -108,11 +102,11 @@ export const AdminDashboard = () => {
                  newHouse.kitchen === null || 
                  newHouse.fullDescr === '' ||
                   newHouse.category === '' ) {
+                    alert('make sure you fill in the required field');
             return;
         }
-    
         const houseCollectionRef = collection(db, `${newHouse.category}`);
-
+       
         try {
            await addDoc(houseCollectionRef, {
             location: newHouse.location,
@@ -124,15 +118,13 @@ export const AdminDashboard = () => {
             fullDescr : newHouse.fullDescr,
             pictures : imgList,
            });
-           console.log(pictures);
            alert('succesful')
         } catch (error) {
             alert(error)
         }
     }
-
     return(
-      !newUser? navig('/login') :
+    //  !newUser? navig('/login') :
     <div className=" px-[20px] py-[50px] items-center gap-5 flex flex-col md:flex-row justify-around">
         
     <div className="  grid md:grid-cols-2 gap-5  w-full ">
@@ -155,7 +147,7 @@ export const AdminDashboard = () => {
         </div>
         <div>
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Folder:</label>
-        <input onChange={(e) => setImgFolder(e.target.value)} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
+        <input  onChange={(e) => setImgFolder(e.target.value)} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
         </div>
         <button onClick={UploadImg} className="bg-green-500 p-2 rounded font-bold">Upload</button>
        </div>
@@ -169,31 +161,31 @@ export const AdminDashboard = () => {
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="amount">Amount:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, amount : e.target.value})
-        } placeholder="Input Amount" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="number" name="" id="" />
+        } placeholder="Input Amount" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
        </div>
        <div className="flex flex-col items-start gap-0">
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="bedroom">Bedroom:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, bed : e.target.value})
-        } className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " placeholder="Input  number of bedroom" type="number" name="" id="" />
+        } className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " placeholder="Input  number of bedroom" type="text" name="" id="" />
        </div>
        <div className="flex flex-col items-start gap-0">
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="bathroom">Bathroom:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, bath : e.target.value})
-        } placeholder="Input number of bathroom" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="number" name="" id="" />
+        } placeholder="Input number of bathroom" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
        </div>
        <div className="flex flex-col items-start gap-0">
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="park">Car Park:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, park : e.target.value})
-        } placeholder="Input number of car park" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="number" name="" id="" />
+        } placeholder="Input number of car park" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
        </div>
        <div className="flex flex-col items-start gap-0">
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="Kitchen">Kitchen:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, kitchen : e.target.value})
-        } placeholder="Input number of kitchen" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="number" name="" id="" />
+        } placeholder="Input number of kitchen" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
        </div>
     </div>
    
@@ -204,14 +196,9 @@ export const AdminDashboard = () => {
         } className="bg-slate-100 p-2 h-[250px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
        <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Uploade Infomation</button>
        </div>
-       <div>
-    
-          {
-           imgList.map(url => {
-               return <img src={url} alt="" />
-            })
-          }
-        </div>
+       {imgList.map(im => {
+        return <img src={im} alt="" />
+       })}
     </div>
 
    )
