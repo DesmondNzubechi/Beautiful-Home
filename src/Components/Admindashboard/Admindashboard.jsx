@@ -127,43 +127,45 @@ export const AdminDashboard = () => {
 
     return(
     //  !newUser? navig('/login') :
-    <div className=" px-[20px] py-[50px] items-start gap-5 flex flex-col md:flex-row justify-around">
-        
+    <div className="py-[100px] relative z-[40] bg-slate-900">
+        <h1 className="text-center font-bold uppercase text-white underline md:text-[20px] text-[17px] lg:text-[25px] mb-[60px] ">Upload property information!</h1>
+    <div className=" px-[20px]  min-h-[100vh]   items-start gap-5 flex flex-col md:flex-row justify-around">
+      
     <div className="  grid md:grid-cols-2 gap-5  w-full ">
    
     {/*   <div>
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Image Folder:</label>
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="propertyImg">Image Folder:</label>
         <input  onBlur={(e) => getHouseImgFolder(e)} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
       </div>*/}
       <div className="md:col-span-2  flex gap-2 flex-col">
        <div className="flex flex-row  items-end gap-5">
         <div className="w-full">
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Image:</label>
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="propertyImg">Image:</label>
         <input onChange={(e) => {
                     setNewImgs(e.target.files[0]);
                 }} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="file" name="" id="" />
         </div>
         <div className="w-full">
-        <label className="text-slate-800  font-semibold text-[20px] " htmlFor="propertyImg">Folder:</label>
+        <label className="text-slate-200  font-semibo uppercase text-150px] " htmlFor="propertyImg">Image Folder:</label>
         <input  onChange={(e) => {
           setImgFolder(e.target.value);
       
-          }} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
+          }} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " placeholder="Input folder name" type="text" name="" id="" />
         </div>
         </div>
         <div className="flex flex-row w-full  items-end gap-5">
         <button onClick={() => {
        UploadImg();
-        }} className="bg-green-500 p-2 w-full rounded font-bold">Upload</button>
+        }} className="bg-green-500 text-slate-900 uppercase p-2 w-full rounded font-bold">Upload image</button>
         <button onClick={() => {
           if (imgFolder == '' || newImgs == null) return;
           setSelectImgFolder(imgFolder);
           console.log(selectImgFolder);
-        }} className="bg-green-500 p-2 rounded w-full font-bold">Save folder</button>
+        }} className="border-[2px] border-slate-400 text-slate-50 uppercase p-2 rounded w-full font-bold">Save folder</button>
        </div>
        </div>
        <div className="flex flex-col w-full  items-start gap-0">
-    <label className="text-slate-800 font-semibold text-[20px] " htmlFor="category">Choose Category:</label>
+    <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="category">Choose Category:</label>
        <select onChange={
         (e) => setNewHouse({...newHouse, category : e.target.value})
         } value={newHouse.category} className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " name="" id="">
@@ -173,37 +175,37 @@ export const AdminDashboard = () => {
        </select>
        </div>
        <div className="flex flex-col items-start gap-0">
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="location">Property Location:</label>
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="location">Property Location:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, location : e.target.value})
         } placeholder="Input Loction..." className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
        </div>
        <div className="flex flex-col items-start gap-0">
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="amount">Amount:</label>
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="amount">Amount:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, amount : e.target.value})
         } placeholder="Input Amount" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
        </div>
        <div className="flex flex-col items-start gap-0">
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="bedroom">Bedroom:</label>
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="bedroom">Bedroom:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, bed : e.target.value})
         } className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " placeholder="Input  number of bedroom" type="text" name="" id="" />
        </div>
        <div className="flex flex-col items-start gap-0">
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="bathroom">Bathroom:</label>
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="bathroom">Bathroom:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, bath : e.target.value})
         } placeholder="Input number of bathroom" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
        </div>
        <div className="flex flex-col items-start gap-0">
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="park">Car Park:</label>
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="park">Car Park:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, park : e.target.value})
         } placeholder="Input number of car park" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
        </div>
-       <div className="flex flex-col items-start gap-0">
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="Kitchen">Kitchen:</label>
+       <div className="flex flex-col md:col-span-2 items-start gap-0">
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="Kitchen">Kitchen:</label>
         <input onChange={
         (e) => setNewHouse({...newHouse, kitchen : e.target.value})
         } placeholder="Input number of kitchen" className="bg-slate-100 p-2 border-slate-200 outline-0 border rounded w-full " type="text" name="" id="" />
@@ -211,16 +213,16 @@ export const AdminDashboard = () => {
     </div>
    
     <div className="flex flex-col w-full  md:h-full items-start gap-0">
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="Kitchen">Full Description:</label>
+        <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="Kitchen">Full Description:</label>
        <textarea onChange={
         (e) => setNewHouse({...newHouse, fullDescr : e.target.value})
-        } className="bg-slate-100 p-2 h-[250px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
+        } className="bg-slate-100 p-2 h-[350px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
        <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Upload Infomation</button>
        </div>
        {imgList.map(im => {
         return <img src={im} alt="" />
        })}
     </div>
-
+    </div>
    )
 }
