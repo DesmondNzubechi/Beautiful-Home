@@ -239,9 +239,9 @@ export const AdminDashboard = () => {
         } className="bg-slate-100 p-2 h-[300px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
        <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Upload Infomation</button>
        </div>
-       {imgList.map(im => {
+       {/*imgList.map(im => {
         return <img src={im} alt="" />
-       })}
+       })*/}
     </div>
     </div>
    )
