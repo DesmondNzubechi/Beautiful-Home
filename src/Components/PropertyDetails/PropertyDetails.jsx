@@ -138,32 +138,32 @@ export const PropertyDetails = () => {
               setForm({...form, tourForm: 'top-[-2000px]'})
             }
           }} className={`fixed ${form.tourForm} w-full overflow-y-auto  h-full flex justify-center z-[10] p-[50px] bg-Tp`}>
-        <form action="" className="bg-pink-700 relative overflow-y-auto rounded flex flex-col gap-4 p-[50px]">
+        <form action="" className="bg-slate-900 relative overflow-y-auto rounded flex flex-col gap-4 p-[50px]">
         <HiXMark onClick={hideTourForm} className="absolute top-0 right-0 text-slate-50 active:text-slate-900 text-[25px] font-bold "/>
             <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Request a tour</h1>
             <div className="flex flex-col">
-                <label htmlFor="name" className="text-slate-900 font-[400] text-[20px]">Date:</label>
+                <label htmlFor="name" className="text-slate-500 font-[400] text-[20px]">Date:</label>
                 <input type="date" className="border outline-0  p-2 rounded" placeholder="Nzubechukwu Desmond" />
             </div>
             <div className="flex flex-col">
-                <label className="text-slate-900 font-[400] text-[20px]" htmlFor="Tel">Time:</label>
+                <label className="text-slate-500 font-[400] text-[20px]" htmlFor="Tel">Time:</label>
                <input type="time" className="border outline-0  p-2 rounded" name="" placeholder="+234 708 41823 611" id="" />
                <div className="flex flex-col">
-                <label htmlFor="name" className="text-slate-900 font-[400] text-[20px]">Name:</label>
+                <label htmlFor="name" className="text-slate-500 font-[400] text-[20px]">Name:</label>
                 <input type="text" className="border outline-0  p-2 rounded" placeholder="Nzubechukwu Desmond" />
             </div>
             <div className="flex flex-col">
-                <label className="text-slate-900 font-[400] text-[20px]" htmlFor="Tel">Phone:</label>
+                <label className="text-slate-500 font-[400] text-[20px]" htmlFor="Tel">Phone:</label>
                 <input type="tel" className="border outline-0  p-2 rounded" name="" placeholder="+234 708 41823 611" id="" />
                 </div>
 
                <div className="flex flex-col">
-                <label className="text-slate-900 font-[400] text-[20px]" htmlFor="email">Email:</label>
+                <label className="text-slate-500 font-[400] text-[20px]" htmlFor="email">Email:</label>
                 <input type="email" className="border outline-0  p-2 rounded" placeholder="nzubechukwu1@gmail.com" />
             </div>
             <div className="flex flex-col">
       
-                <button className="bg-slate-900 text-slate-50 p-2 my-[20px] rounded text-[20px] capitalize">Submit Request</button>
+                <button className="bg-slate-500 text-slate-50 p-2 my-[20px] rounded text-[15px]  uppercase font-bold">Submit Request</button>
             </div>
             </div>
         </form>
