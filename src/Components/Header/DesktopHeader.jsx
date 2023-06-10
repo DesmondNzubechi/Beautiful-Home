@@ -49,12 +49,12 @@ export const DesktopHeader = () => {
 <div className="flex flex-row gap-4 ">
     {linking.map(links => {return <NavLink style={({isActive}) => {
                 return isActive? {borderBottom: '2px solid white'} : {}
-            }}  to={links.link} className='text-slate-200 text-[25px] font-[400] '>{links.name}</NavLink>})}
+            }}  to={links.link} className='text-slate-200 text-[20px] font-[400] '>{links.name}</NavLink>})}
             <div className="flex items-center flex-row">
            {!newUser &&     
     <div className="flex flex-row gap-2">
-            <NavLink to='/login' className='bg-pink-500 max-w-[100px] uppercase py-1 rounded shadow-2xl text-[20px] px-[20px] '>Login</NavLink>
-            <NavLink to='/signup' className='bg-slate-50 max-w-[100px] text-slate-900 uppercase text-center font-[500] py-1 rounded shadow-2xl text-[20px] px-[20px] '>Signup</NavLink>
+            <NavLink to='/login' className='bg-pink-500 max-w-[100px] uppercase py-1 rounded shadow-2xl text-[15px] px-[15px] '>Login</NavLink>
+            <NavLink to='/signup' className='bg-slate-50 max-w-[100px] text-slate-900 uppercase text-center font-[500] py-1 rounded shadow-2xl text-[15px] px-[15px] '>Signup</NavLink>
            </div>}
          {newUser &&  <NavLink  to='/dashboard' className='  w-fit rounded-full  text-slate-300 active:text-white  uppercase text-center font-[500] shadow-2xl text-[30px] p-2'><FaUserCircle className="shadow-2xl"/></NavLink>}
            </div>
