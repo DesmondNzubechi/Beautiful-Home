@@ -5,7 +5,7 @@ import img from '../../assets/images/contact.avif';
 
 export const Contact = () => {
     return(
-        <div className="py-[70px] overflow-x-hidden grid grid-cols-1 md:grid-cols-2 gap-[20px] items-center px-[30px] pt-[150px] ">
+        <div className="py-[70px] overflow-x-hidden grid grid-cols-1 lg:grid-cols-2 gap-[20px] items-center px-[30px] pt-[150px] ">
             <form action="" method="post" className="flex flex-col gap-[20px]">
                     <div>
                         <h1 className="capitalize  font-semibold text-[20px] ">Get in touch with us</h1>
