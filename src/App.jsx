@@ -13,6 +13,7 @@ import { Login } from './Components/Login/login';
 import { Signup } from './Components/signup/Signup';
 import { Userdashboard } from './Components/User dashboard/Userdashboard';
 import { AdminDashboard } from './Components/Admindashboard/Admindashboard';
+import { FullAbout } from './Pages/About/FullAbout';
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
     <Route path='/signup' element={<Signup/>} />
     <Route path='/dashboard' element={ <Userdashboard/>} />
     <Route path='/admin'  element={<AdminDashboard/>} />
+    <Route path='/about' element={<FullAbout/>} />
       </Routes>
     
     </div>
