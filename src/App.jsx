@@ -32,7 +32,7 @@ function App() {
     <Route path='/dashboard' element={ <Userdashboard/>} />
     <Route path='/admin'  element={<AdminDashboard/>} />
       </Routes>
-      <AdminDashboard/>
+    
     </div>
     </HousesDetails>
     </BrowserRouter>

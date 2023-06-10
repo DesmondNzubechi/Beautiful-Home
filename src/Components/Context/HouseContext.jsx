@@ -48,7 +48,7 @@ export const HousesDetails = (props) => {
    const signin = async () => {
        try {
            await signInWithEmailAndPassword(auth, inputs.signInemail, inputs.signInpassword);
-           if (inputs.signInemail === 'nzubestdesmond@gmail.com') {
+           if (inputs.signInemail === 'admin@gmail.com') {
             navig('/admin');
            } else {
             navig('/dashboard');

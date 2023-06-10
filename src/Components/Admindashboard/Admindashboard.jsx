@@ -6,7 +6,7 @@ import { db } from "../../config/firebase";
 import {collection,  getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase/firestore';
 import { useContext } from "react";
 import { HouseContext } from "../Context/HouseContext";
-
+import {FaUserCircle, FaWarehouse} from 'react-icons/fa';
 
 export const AdminDashboard = () => {
   const {newUser, signout, navig} = useContext(HouseContext);
@@ -125,19 +125,30 @@ export const AdminDashboard = () => {
         }
     }
 
+    const [logoutB, setLogoutB] = useState(false);
+
     return(
-    //  !newUser? navig('/login') :
-    <div className="py-[100px] relative z-[40] bg-slate-900">
-        <h1 className="text-center font-bold uppercase text-white underline md:text-[20px] text-[17px] lg:text-[25px] mb-[60px] ">Upload property information!</h1>
-    <div className=" px-[20px]  min-h-[100vh]   items-start gap-5 flex flex-col md:flex-row justify-around">
+    !newUser? navig('/login') :
+    <div className="py-[100px] px-[20px] relative z-[40] bg-slate-900">
+      <div>
+        
+       <FaUserCircle onClick={() => {logoutB? setLogoutB(false):setLogoutB(true)}} className="text-[50px] absolute top-[80px] right-5 bg-white  active:text-slate-900 text-slate-500   shadow-2xl rounded-full"/>
+       {logoutB &&  <div className=" absolute flex flex-col gap-2 rounded shadow-2xl top-[120px] bg-transparent p-3  right-0 "> 
+     { /* <button onClick={signout} className=' shadow-2xl text-slate-50 uppercase py-1 rounded shadow-2xl text-[20px]  '>profile</button>
+       <hr />*/}
+     <button onClick={signout} className='shadow-2xl text-slate-50 uppercase py-1 rounded shadow-2xl text-[20px] bg-slate-500 p-2 '>Logout</button>
+       </div>  }
+      </div>
+        <h1 className="text-start font-bold uppercase text-white underline md:text-[20px] text-[17px] lg:text-[25px] mb-[60px] ">Upload property information!</h1>
+    <div className="   min-h-[100vh]   items-start gap-5 flex flex-col md:flex-row justify-around">
       
-    <div className="  grid md:grid-cols-2 gap-5  w-full ">
+    <div className="  grid md:grid-cols-2 gap-2  w-full ">
    
     {/*   <div>
         <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="propertyImg">Image Folder:</label>
         <input  onBlur={(e) => getHouseImgFolder(e)} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
       </div>*/}
-      <div className="md:col-span-2  flex gap-2 flex-col">
+      <div className="md:col-span-2  flex gap-1 flex-col">
        <div className="flex flex-row  items-end gap-5">
         <div className="w-full">
         <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="propertyImg">Image:</label>
@@ -216,7 +227,7 @@ export const AdminDashboard = () => {
         <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="Kitchen">Full Description:</label>
        <textarea onChange={
         (e) => setNewHouse({...newHouse, fullDescr : e.target.value})
-        } className="bg-slate-100 p-2 h-[350px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
+        } className="bg-slate-100 p-2 h-[300px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
        <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Upload Infomation</button>
        </div>
        {imgList.map(im => {
