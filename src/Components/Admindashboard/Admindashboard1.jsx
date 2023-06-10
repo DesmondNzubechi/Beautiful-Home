@@ -164,3 +164,55 @@ const UploadForm = () => {
 };
 
 export default UploadForm;
+
+
+
+
+
+
+
+
+
+import React, { useEffect, useState } from 'react';
+import firebase from './firebase';
+
+const StorageFolders = () => {
+  const [folders, setFolders] = useState([]);
+
+  useEffect(() => {
+    const fetchStorageFolders = async () => {
+      try {
+        const storageRef = firebase.storage().ref();
+        const listResult = await storageRef.listAll();
+
+        const folderSet = new Set();
+
+        listResult.items.forEach((item) => {
+          const folders = item.fullPath.split('/').slice(0, -1);
+          folders.forEach((folder) => folderSet.add(folder));
+        });
+
+        const storageFolders = Array.from(folderSet);
+
+        setFolders(storageFolders);
+      } catch (error) {
+        console.error('Error retrieving storage folders:', error);
+      }
+    };
+
+    fetchStorageFolders();
+  }, []);
+
+  return (
+    <div>
+      <h1>Storage Folders</h1>
+      <ul>
+        {folders.map((folder, index) => (
+          <li key={index}>{folder}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default StorageFolders;

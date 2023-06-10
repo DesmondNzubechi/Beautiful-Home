@@ -12,9 +12,7 @@ export const AdminDashboard = () => {
   const {newUser, signout, navig} = useContext(HouseContext);
     const [imgFolder, setImgFolder] = useState('');
     const [imgList, setImgList] = useState([]);
-   /* useEffect(() => {
-      localStorage.setItem("imgList", JSON.stringify(imgList))
-    }, [imgList])*/
+    const [selectImgFolder, setSelectImgFolder] = useState('');
      const [newImgs, setNewImgs] = useState([]);
      const [newHouse, setNewHouse] = useState({
       category: '',
@@ -28,10 +26,17 @@ export const AdminDashboard = () => {
       pictures: [...imgList],
 
   });
+/*
+  const getHouseImgFolder = (e) => {
 
+      setSelectImgFolder(e.target.value);
+  }
+*/
+
+
+ 
      const UploadImg = () => {
       if (newImgs === null || imgFolder === '') return;
-      
         const folderRef = ref(storage, imgFolder);
         listAll(folderRef)
           .then((folderSnapshot) => {
@@ -51,7 +56,7 @@ export const AdminDashboard = () => {
                       setImgList((prev) => [...prev, url]);
                   })
               })
-              console.log(response)
+          
              });
              setNewHouse({...newHouse, pictures: imgList});
             alert('succesfull');
@@ -62,38 +67,34 @@ export const AdminDashboard = () => {
             });
           })*/
           .catch((error) => {
-            console.error('Error uploading image:', error);
+          
             alert(error.message);
             // Handle error if necessary
           });
       };
-      if (imgFolder  !== '') {
-        
-      }
-      
-     useEffect(() => {
-      const imageListRef = ref(storage, `/${imgFolder}`);
-       listAll(imageListRef).then((response) => {
-        response.items.forEach(item => {
-            getDownloadURL(item).then(url => {
-                setImgList((prev) => [...prev, url]);
-            })
-        })
-        console.log(response)
-       })
-     }, [])
 
-    console.log(newHouse.pictures)
-    console.log(imgList)
+      const getImgFolder = () => {
+        setSelectImgFolder(imgFolder)
+      }
+
+  useEffect(() => {
+   if (selectImgFolder == '')return;
+        const imageListRef = ref(storage, selectImgFolder);
+        listAll(imageListRef).then((response) => {
+         response.items.forEach(item => {
+             getDownloadURL(item).then(url => {
+                 setImgList(url);
+             })
+         })
+       
+        })
+      }, [])
     const createHouse = async () => {
-      if (imgList <= 0) {
+      if (imgList.length <= 0) {
         alert('Upload Image First');
         return;
     };
-    if (!imgFolder) {
-      alert('Input Image folder name');
-      return;
-    }
+   
         if (newHouse.location  === '' ||
              newHouse.bed === null ||
               newHouse.amount === null ||
@@ -123,12 +124,45 @@ export const AdminDashboard = () => {
             alert(error)
         }
     }
+
     return(
     //  !newUser? navig('/login') :
-    <div className=" px-[20px] py-[50px] items-center gap-5 flex flex-col md:flex-row justify-around">
+    <div className=" px-[20px] py-[50px] items-start gap-5 flex flex-col md:flex-row justify-around">
         
     <div className="  grid md:grid-cols-2 gap-5  w-full ">
-    <div className="flex flex-col w-full  items-start gap-0">
+   
+    {/*   <div>
+        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Image Folder:</label>
+        <input  onBlur={(e) => getHouseImgFolder(e)} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
+      </div>*/}
+      <div className="md:col-span-2  flex gap-2 flex-col">
+       <div className="flex flex-row  items-end gap-5">
+        <div className="w-full">
+        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Image:</label>
+        <input onChange={(e) => {
+                    setNewImgs(e.target.files[0]);
+                }} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="file" name="" id="" />
+        </div>
+        <div className="w-full">
+        <label className="text-slate-800  font-semibold text-[20px] " htmlFor="propertyImg">Folder:</label>
+        <input  onChange={(e) => {
+          setImgFolder(e.target.value);
+      
+          }} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
+        </div>
+        </div>
+        <div className="flex flex-row w-full  items-end gap-5">
+        <button onClick={() => {
+       UploadImg();
+        }} className="bg-green-500 p-2 w-full rounded font-bold">Upload</button>
+        <button onClick={() => {
+          if (imgFolder == '' || newImgs == null) return;
+          setSelectImgFolder(imgFolder);
+          console.log(selectImgFolder);
+        }} className="bg-green-500 p-2 rounded w-full font-bold">Save folder</button>
+       </div>
+       </div>
+       <div className="flex flex-col w-full  items-start gap-0">
     <label className="text-slate-800 font-semibold text-[20px] " htmlFor="category">Choose Category:</label>
        <select onChange={
         (e) => setNewHouse({...newHouse, category : e.target.value})
@@ -137,19 +171,6 @@ export const AdminDashboard = () => {
         <option value="rent">Rent</option>
         <option value="buy">buy</option>
        </select>
-       </div>
-       <div className="flex flex-row  items-end gap-5">
-        <div>
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Image:</label>
-        <input onChange={(e) => {
-                    setNewImgs(e.target.files[0]);
-                }} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="file" name="" id="" />
-        </div>
-        <div>
-        <label className="text-slate-800 font-semibold text-[20px] " htmlFor="propertyImg">Folder:</label>
-        <input  onChange={(e) => setImgFolder(e.target.value)} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
-        </div>
-        <button onClick={UploadImg} className="bg-green-500 p-2 rounded font-bold">Upload</button>
        </div>
        <div className="flex flex-col items-start gap-0">
         <label className="text-slate-800 font-semibold text-[20px] " htmlFor="location">Property Location:</label>
@@ -194,7 +215,7 @@ export const AdminDashboard = () => {
        <textarea onChange={
         (e) => setNewHouse({...newHouse, fullDescr : e.target.value})
         } className="bg-slate-100 p-2 h-[250px] border-slate-200 outline-0 border rounded w-full  " name="" id="" ></textarea>
-       <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Uploade Infomation</button>
+       <button onClick={createHouse} className="bg-green-500 p-4  text-slate-50 uppercase text-[20px] my-[20px] w-full rounded font-bold">Upload Infomation</button>
        </div>
        {imgList.map(im => {
         return <img src={im} alt="" />
