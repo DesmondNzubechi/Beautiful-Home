@@ -30,6 +30,7 @@ const linking = [
         name: 'About',
         link: '/about',
     }
+
 ]
 
 export const DesktopHeader = () => {

@@ -9,7 +9,7 @@ import { HouseContext } from "../Context/HouseContext";
 
 export const Login = () => {
 
-    const {signin, inputs, setInputs, signInWithgoogleE} = useContext(HouseContext);
+    const {signin, inputs, setInputs} = useContext(HouseContext);
 
     return(
         <div className="py-[150px] px-[20px]  ">
@@ -27,7 +27,7 @@ export const Login = () => {
                     </div>
                     <div>
                     <label htmlFor="password" className="flex font-semibold items-center text-slate-900 text-[15px] "><RiLockPasswordFill/>Password</label>
-                        <input onChange={(e) => setInputs({...inputs, signInpassword: e.target.value})} value={inputs.password} type="password" placeholder="******"  className="p-3 rounded outline-0 w-full shadow "/>
+                        <input onChange={(e) => setInputs({...inputs, signInpassword: e.target.value})} required value={inputs.password} type="password" placeholder="******"  className="p-3 rounded outline-0 w-full shadow "/>
                     </div>
                   <button type="button" onClick={signin} className="bg-green-500 rounded text-[17px] font-semibold p-3">Login</button>
                   <p className="text-center text-[17px] text-slate-100 ">Don't have account yet? <Link to='/signup' className="text-pink-500 uppercase font-bold">Sign Up</Link></p>

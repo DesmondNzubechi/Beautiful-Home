@@ -15,6 +15,7 @@ import { Userdashboard } from './Components/User dashboard/Userdashboard';
 import { AdminDashboard } from './Components/Admindashboard/Admindashboard';
 import { FullAbout } from './Pages/About/FullAbout';
 import { Contact } from './Pages/Contact/Contact';
+import { Sell } from './Pages/Sell/Sell';
 function App() {
   return (
     <BrowserRouter>
@@ -35,6 +36,7 @@ function App() {
     <Route path='/admin'  element={<AdminDashboard/>} />
     <Route path='/about' element={<FullAbout/>} />
     <Route path='/contact' element={<Contact/>} />
+    <Route path='/sell' element={<Sell/>} />
       </Routes>
     
     </div>
