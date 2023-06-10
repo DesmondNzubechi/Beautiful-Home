@@ -36,7 +36,14 @@ export const AdminDashboard = () => {
 
  
      const UploadImg = () => {
-      if (newImgs === null || imgFolder === '') return;
+      if (newImgs === null) {
+        alert('Please Select Image');
+        return;
+      };
+      if (imgFolder == '') {
+        alert('You Forgot To Input Image Folder Name');
+        return;
+      }
         const folderRef = ref(storage, imgFolder);
         listAll(folderRef)
           .then((folderSnapshot) => {
@@ -169,7 +176,9 @@ export const AdminDashboard = () => {
        UploadImg();
         }} className="bg-green-500 text-slate-900 uppercase p-2 w-full rounded font-bold">Upload image</button>
         <button onClick={() => {
-          if (imgFolder == '' || newImgs == null) return;
+          if (imgFolder == '' || newImgs == null){
+            alert('Fill In The Correct Details');
+          };
           setSelectImgFolder(imgFolder);
           console.log(selectImgFolder);
         }} className="border-[2px] border-slate-400 text-slate-50 uppercase p-2 rounded w-full font-bold">Save folder</button>
