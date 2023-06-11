@@ -16,6 +16,7 @@ import { AdminDashboard } from './Components/Admindashboard/Admindashboard';
 import { FullAbout } from './Pages/About/FullAbout';
 import { Contact } from './Pages/Contact/Contact';
 import { Sell } from './Pages/Sell/Sell';
+import { Footer } from './Components/Footer/Footer';
 function App() {
   return (
     <BrowserRouter>
@@ -38,7 +39,7 @@ function App() {
     <Route path='/contact' element={<Contact/>} />
     <Route path='/sell' element={<Sell/>} />
       </Routes>
-    
+    <Footer/>
     </div>
     </HousesDetails>
     </BrowserRouter>
