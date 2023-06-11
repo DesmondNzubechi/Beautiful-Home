@@ -12,7 +12,7 @@ export const AboutHome = () => {
       }, []);*/
 
     return(
-        <div  className="   flex items-center justify-around flex-col md:flex-row px-[30px] py-[100px] lg:min-h-[100vh] from-slate-50 bg-white rounded-t-[50px] gap-5 to-slate-50">
+        <div  className="   flex items-center justify-around flex-col lg:flex-row px-[30px] py-[100px] lg:min-h-[100vh] from-slate-50 bg-white rounded-t-[50px] gap-5 to-slate-50">
         <div data-aos='fade-up' aos-data-duration='2000' className="max-w-[700px] flex flex-col gap-3 ">
             <h1 className="uppercase font-bold text-[30px] text-slate-900">About Us</h1>
             <p className="text-slate-700 font-fonty  text-[15px] md:text-[20px] ">Welcome to <strong>HomeBuilder</strong> , where dreams come to life and homes are crafted with passion and precision. As a premier real estate company, we take pride in our commitment to delivering exceptional properties that truly reflect the vision and aspirations of our clients. Whether you're looking for a custom-built masterpiece or a thoughtfully designed pre-built home, HomeBuilder is your trusted partner in turning your dream into a reality.   </p>

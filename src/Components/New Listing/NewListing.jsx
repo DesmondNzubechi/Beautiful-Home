@@ -147,7 +147,7 @@ export const NewListing = () => {
                 <h1 className="uppercase border-b-[5px] rounded-[10px] p-1    md:text-start font-bold text-[30px] ">New listing</h1>
                
             </div>
-           <div className="bg-white gap-5 grid grid-col-1 justify-center md:grid-cols-3">
+           <div className="bg-white  gap-5 grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3">
             {
                 Listed.map(property => {
                     return(

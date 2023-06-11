@@ -46,7 +46,7 @@ export const RentHouse = () => {
 
   </div>
         <div className="px-[20px] pt-[120px] py-[100px]">
-           <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
+           <div className="bg-white gap-[50px] grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3">
             {
                 diffRentH.map(property => {
                     return(
