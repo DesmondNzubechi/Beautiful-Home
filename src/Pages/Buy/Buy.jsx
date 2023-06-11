@@ -43,7 +43,7 @@ export const BuyHouse = () => {
         </div>
 
       </div>
-      <div className="px-[20px] pt-[150px] py-[100px]">
+      <div className="px-[20px] pt-[120px] py-[100px]">
            <div className="bg-white gap-[50px] grid grid-col-1 justify-center md:grid-cols-2 lg:grid-cols-3">
             {
                 diffHousesSell.map(property => {
@@ -58,16 +58,16 @@ export const BuyHouse = () => {
                                  </div>
                                  <div className="flex  flex-row gap-1 items-center ">
                                      <FaMoneyCheckAlt className="text-[20px] text-green-500"/>
-                                     <p className="text-[20px] text-slate-900 font-bold  ">{property.amount}</p>
+                                     <p className="text-[17px] text-slate-900 font-bold  ">{property.amount}</p>
                                  </div>
                                  </div>
                                  <div className="flex px-2 flex-row gap-[40px] justify-between items-center ">
-                                    <p className="text-[8px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[8px] md:text-[15px] font-bold text-slate-500"/>{property.bed}</p>
-                                    <p className="text-[8px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[8px] md:text-[15px] font-bold text-slate-700"/>{property.bath}</p>
-                                    <p className="text-[8px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[8px] md:text-[15px] font-bold text-slate-500"/>{property.park}</p>
-                                    <p className="text-[8px] md:text-[15px] font-bold flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[12px] md:text-[15px] font-bold text-slate-500"/>{property.kitchen}</p>
+                                    <p className="text-[8px] md:text-[12px] font-bold flex flex-row gap items-center  text-slate-900 "><FaBed className="text-[8px] md:text-[12px] font-bold text-slate-500"/>{property.bed}</p>
+                                    <p className="text-[8px] md:text-[12px] font-bold flex flex-row gap items-center  text-slate-900 "> <FaBath className="text-[8px] md:text-[12px] font-bold text-slate-700"/>{property.bath}</p>
+                                    <p className="text-[8px] md:text-[12px] font-bold flex flex-row gap items-center  text-slate-900 "><AiTwotoneCar className="text-[8px] md:text-[12px] font-bold text-slate-500"/>{property.park}</p>
+                                    <p className="text-[8px] md:text-[12px] font-bold flex flex-row gap items-center  text-slate-900 "><MdSoupKitchen className="text-[12px] md:text-[12px] font-bold text-slate-500"/>{property.kitchen}</p>
                                  </div>
-                                 <Link onClick={() => viewHouse(property)} to='/Property-full-details' className="bg-slate-900 hover:bg-slate-700 rounded-b text-center text-slate-50 text-[15px] py-[10px] uppercase font-bold">View Property</Link>
+                                 <Link onClick={() => viewHouse(property)} to='/Property-full-details' className="bg-slate-900 hover:bg-slate-700 rounded-b text-center text-slate-50 text-[12px] py-[10px] uppercase font-bold">View Property</Link>
                              </div>
                          </div>
                        
