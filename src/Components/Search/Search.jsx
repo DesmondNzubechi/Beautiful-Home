@@ -11,7 +11,7 @@ export const SearchPage = () => {
      const {filteredSearch, getSearch, searchedText, viewHouse} = useContext(HouseContext);
      
     return(
-        <div className="py-[50px]  ">
+        <div className="py-[50px] min-h-[100vh] ">
             <div>
 {
     filteredSearch.length === 0 ?
