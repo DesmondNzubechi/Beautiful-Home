@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export const Sell = () => {
     return(
-        <div>
+        <div className="min-h-[100vh]">
 
                  
         <div
@@ -23,7 +23,7 @@ export const Sell = () => {
 
             </div>
 
-            <div  className="   flex items-center justify-around flex-col md:flex-row px-[30px] py-[100px] lg:min-h-[100vh] from-slate-50 bg-white rounded-t-[50px] gap-5 to-slate-50">
+            <div  className="   flex items-center justify-around flex-col lg:flex-row px-[30px] py-[100px] lg:min-h-[100vh] from-slate-50 bg-white rounded-t-[50px] gap-5 to-slate-50">
         <div data-aos='fade-up' aos-data-duration='2000' className="max-w-[700px] flex flex-col gap-3 ">
             <h1 className="uppercase font-bold text-[20px] text-slate-900">Sell with a partner agent or get a cash offer</h1>
             <p className="text-slate-700 font-fonty  text-[15px] md:text-[20px] "><strong>HomeBuilder</strong>helps you sell your home, your way. Easily explore your selling options below and get personalized market value estimates — we can even help you choose the best option when you’re ready. </p>

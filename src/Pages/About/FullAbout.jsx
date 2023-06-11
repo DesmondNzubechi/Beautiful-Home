@@ -12,7 +12,7 @@ export const FullAbout = () => {
       }, []);*/
 
     return(
-        <div  className="   flex items-center justify-around flex-col lg:flex-row px-[30px] py-[150px] lg:min-h-[100vh] from-slate-50 bg-white rounded-t-[50px] gap-5 to-slate-50">
+        <div  className=" min-h-[100vh]  flex items-center justify-around flex-col lg:flex-row px-[30px] py-[150px] lg:min-h-[100vh] from-slate-50 bg-white rounded-t-[50px] gap-5 to-slate-50">
         <div data-aos='fade-up' aos-data-duration='2000' className="max-w-[700px] flex flex-col gap-3 ">
             <h1 className="uppercase font-bold text-[30px] text-slate-900">About Us</h1>
             <p className="text-slate-700 font-fonty  text-[15px] md:text-[15px] ">At <strong>HomeBuilder</strong>, we are committed to bringing your dream home to life with exquisite craftsmanship and personalized service. With a deep understanding that your home is a reflection of your unique lifestyle and a sanctuary for you and your loved ones, we strive to exceed your expectations every step of the way.</p>
