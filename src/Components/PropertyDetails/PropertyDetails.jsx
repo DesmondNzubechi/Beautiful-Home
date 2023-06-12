@@ -94,7 +94,10 @@ export const PropertyDetails = () => {
       </div>
       <div className="my-[20px] ">
         <h1 className="uppercase font-bold text-[20px]  md:text-[20px]">Description:</h1>
-        <p className="text-slate-700 font-[400] text-[16px] ">Introducing a remarkable home for sale that encompasses a host of impressive features. Step inside to discover an open-concept layout, providing seamless flow between living spaces. The gourmet kitchen showcases top-of-the-line appliances, sleek countertops, and ample storage. Relaxation awaits in the luxurious master suite, featuring a spa-like ensuite bathroom. Outside, a meticulously landscaped backyard offers a serene oasis, complete with a covered patio for outdoor gatherings. Conveniently located near amenities, this property presents a unique opportunity to own a truly exceptional home in a sought-after neighborhood. Schedule a private tour today and experience the epitome of modern living.</p>
+       {housing.fullDescr === ''? <p className="text-slate-700 font-[400] text-[16px] "> Introducing a remarkable home for sale that encompasses a host of impressive features. Step inside to discover an open-concept layout, providing seamless flow between living spaces. The gourmet kitchen showcases top-of-the-line appliances, sleek countertops, and ample storage. Relaxation awaits in the luxurious master suite, featuring a spa-like ensuite bathroom. Outside, a meticulously landscaped backyard offers a serene oasis, complete with a covered patio for outdoor gatherings. Conveniently located near amenities, this property presents a unique opportunity to own a truly exceptional home in a sought-after neighborhood. Schedule a private tour today and experience the epitome of modern living.</p>
+       :
+       <p>{housing.fullDescr}</p>
+       }
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
         <button onClick={viewAgentForm} className="bg-green-500 rounded px-3  py-2 text-[15px] text-slate-50 font-semibold   ">Contact Agent</button>

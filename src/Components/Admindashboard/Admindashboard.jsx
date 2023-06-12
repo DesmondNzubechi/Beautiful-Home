@@ -36,8 +36,8 @@ export const AdminDashboard = () => {
 
  
      const UploadImg = () => {
-      if (newImgs === null) {
-        alert('Please Select Image');
+      if (newImgs.length <= 0) {
+        alert('Please Select Image To Be Uploaded');
         return;
       };
       if (imgFolder == '') {
@@ -66,7 +66,7 @@ export const AdminDashboard = () => {
           
              });
              setNewHouse({...newHouse, pictures: imgList});
-            alert('succesfull');
+            alert('Image uploaded succesful, You can also more image if you still have more image!');
           })
        /*   .then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
@@ -98,9 +98,13 @@ export const AdminDashboard = () => {
       }, [])
     const createHouse = async () => {
       if (imgList.length <= 0) {
-        alert('Upload Image First');
+        alert('Please upload the house/home pictures');
         return;
     };
+    if (selectImgFolder === '') {
+      alert('Please save the image folder🙏');
+      return;
+    }
    
         if (newHouse.location  === '' ||
              newHouse.bed === null ||
@@ -126,26 +130,25 @@ export const AdminDashboard = () => {
             fullDescr : newHouse.fullDescr,
             pictures : imgList,
            });
-           alert('succesful')
+           alert('You house/home information upload is succesful👋')
         } catch (error) {
-            alert(error)
+            alert('Some error occur while uploading your info. Please try again.')
         }
     }
 
     const [logoutB, setLogoutB] = useState(false);
 
     return(
-    !newUser? navig('/login') :
-    <div className="py-[100px] px-[20px] relative z-[40] bg-slate-900">
-      <div>
-        
+   // !newUser? navig('/login') :
+    <div className="py-[100px] px-[20px]  bg-slate-700">
+    { /* <div>  
        <FaUserCircle onClick={() => {logoutB? setLogoutB(false):setLogoutB(true)}} className="text-[50px] absolute top-[80px] right-5 bg-white  active:text-slate-900 text-slate-500   shadow-2xl rounded-full"/>
        {logoutB &&  <div className=" absolute flex flex-col gap-2 rounded shadow-2xl top-[120px] bg-transparent p-3  right-0 "> 
      { /* <button onClick={signout} className=' shadow-2xl text-slate-50 uppercase py-1 rounded shadow-2xl text-[20px]  '>profile</button>
-       <hr />*/}
+       <hr />}
      <button onClick={signout} className='shadow-2xl text-slate-50 uppercase py-1 rounded shadow-2xl text-[20px] bg-slate-500 p-2 '>Logout</button>
        </div>  }
-      </div>
+    </div>*/}
         <h1 className="text-start font-bold uppercase text-white underline md:text-[20px] text-[17px] lg:text-[25px] mb-[60px] ">Upload property information!</h1>
     <div className="   min-h-[100vh]   items-start gap-5 flex flex-col md:flex-row justify-around">
       

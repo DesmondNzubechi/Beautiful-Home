@@ -13,7 +13,7 @@ export const HeroSection = () => {
                     <p className="md:text-[20px] text-[20px] capitalize ">Discover your dream home with HOME BUILDER Your Gateway to Exceptional Properties. We are your trusted partner in the exciting journey of finding the perfect place to call your own</p>
                     <div className="flex flex-row gap-2 ">
                         <NavLink to='/buy' className='bg-slate-900 px-3 py-1 text-slate-50 rounded-[2px] text-[20px] shadow-2xl  '>Explore</NavLink>
-                        <NavLink to='/about' className='bg-pink-500 px-3 py-1  rounded-[2px] text-[20px] shadow-2xl text-white '>Learn More</NavLink>
+                        <NavLink to='/admin' className='bg-pink-500 px-3 py-1  rounded-[2px] text-[20px] shadow-2xl text-white '>Upload Home</NavLink>
                     </div>
                    
                 </div>
