@@ -1,14 +1,21 @@
 import React from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import heroImg from '../../assets/images/heroImage/heroImg2.jpg';
 import { NavLink } from "react-router-dom";
 
 
 
 export const HeroSection = () => {
+ useEffect(() => {
+    Aos.init({duration: 2000})
+ }, []);
+
     return(
-        <div className="py-[100px] shadow flex rounded-b-[50px]  flex-row justify-center px-[30px]  bg-slate-50 lg:min-h-[100vh] ">
+        <div  className="py-[100px] shadow flex rounded-b-[50px]  flex-row justify-center px-[30px]  bg-slate-50 lg:min-h-[100vh] ">
             <div className="flex flex-col md:flex-row items-center gap-[50px] justify-around">
-                <div className="flex flex-col gap-5 max-w-[400px] md:max-w-[500px]">
+                <div data-aos='zoom-in-down' className="flex flex-col gap-5 max-w-[400px] md:max-w-[500px]">
                     <h1 className="font-bold uppercase text-[20px] ">Welcome to HOME BUILDER.</h1>
                     <p className="md:text-[20px] text-[20px] capitalize ">Discover your dream home with HOME BUILDER Your Gateway to Exceptional Properties. We are your trusted partner in the exciting journey of finding the perfect place to call your own</p>
                     <div className="flex flex-row gap-2 ">
@@ -17,7 +24,7 @@ export const HeroSection = () => {
                     </div>
                    
                 </div>
-                <div>
+                <div data-aos='zoom-in-down'>
 <img src={heroImg} alt="" className="rounded-[50px]"/>
                     </div>
             </div>
