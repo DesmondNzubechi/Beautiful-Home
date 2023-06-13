@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import newPic from '../../assets/images/Buy/house6/img1.webp';
 import {GrNext, GrPrevious} from 'react-icons/gr'
 import { useContext } from "react";
@@ -8,6 +8,7 @@ import {AiTwotoneCar} from 'react-icons/ai';
 import { MdKitchen, MdMoney, MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
 import  { HiOutlineBars3, HiXMark } from 'react-icons/hi2';
+import Aos from "aos";
 
 export const PropertyDetails = () => {
   const [form, setForm] = useState({
@@ -60,12 +61,15 @@ export const PropertyDetails = () => {
          agentForm : 'top-[-1000px]',
        });
     }
+    useEffect(() => {
+      Aos.init({duration: 2000});
+    })
     return(
         <div>
             {houseFeatures.map(housing => {
 
       return <div className="grid pt-[150px] items-start gap-5 px-[20px] py-[50px] grid-cols-1 md:grid-cols-2">
-      <div className="flex flex-col items-start relative gap-1">
+      <div data-aos='fade-up' className="flex flex-col items-start relative gap-1">
         <div className="flex items-center flex-row w-full ">
         <GrPrevious onClick={prevPic} className="absolute left-1 text-slate-50 hover:bg-pink-500 font-bold bg-white p-1   text-[30px]"/>
         <img src={broadImg} alt=""  className="w-full"/>
@@ -78,8 +82,8 @@ export const PropertyDetails = () => {
       })}
      </div>
       </div>
-      <div>
-      <div className="flex    flex-row">   
+      <div >
+      <div data-aos='fade-up' className="flex    flex-row">   
       <ul className="flex flex-col gap-y-3 items-start ">
       <li className="grid grid-cols-2 gap-x-[60px] gap-y-2">
         <li className="flex flex-row gap-x-2 text-slate-900 items-center text-[15px] md:text-[20px] font-semibold uppercase"> <HiLocationMarker className="text-green-500"/> {housing.location}</li>
@@ -92,14 +96,14 @@ export const PropertyDetails = () => {
         </li>
       </ul>
       </div>
-      <div className="my-[20px] ">
+      <div data-aos='fade-up' className="my-[20px] ">
         <h1 className="uppercase font-bold text-[20px]  md:text-[20px]">Description:</h1>
        {housing.fullDescr === ''? <p className="text-slate-700 font-[400] text-[16px] "> Introducing a remarkable home for sale that encompasses a host of impressive features. Step inside to discover an open-concept layout, providing seamless flow between living spaces. The gourmet kitchen showcases top-of-the-line appliances, sleek countertops, and ample storage. Relaxation awaits in the luxurious master suite, featuring a spa-like ensuite bathroom. Outside, a meticulously landscaped backyard offers a serene oasis, complete with a covered patio for outdoor gatherings. Conveniently located near amenities, this property presents a unique opportunity to own a truly exceptional home in a sought-after neighborhood. Schedule a private tour today and experience the epitome of modern living.</p>
        :
        <p>{housing.fullDescr}</p>
        }
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+      <div data-aos='fade-up' className="grid grid-cols-2 md:grid-cols-3 gap-5">
         <button onClick={viewAgentForm} className="bg-green-500 rounded px-3  py-2 text-[15px] text-slate-50 font-semibold   ">Contact Agent</button>
         <button onClick={viewtourForm} className="bg-slate-900 rounded px-3  py-2 text-[15px] text-slate-50 font-semibold   ">Request A Tour</button>
         {/*<button className="bg-slate-50 rounded px-3  py-2 text-[15px] text-slate-900 font-semibold border   ">Ask Question</button>*/}
@@ -113,7 +117,7 @@ export const PropertyDetails = () => {
               setForm({...form, agentForm: 'top-[-2000px]'})
             }
           }} className={`fixed ${form.agentForm}  w-full h-full flex justify-center z-[10] p-[50px] bg-Tp`}>
-         <form action="" className="bg-pink-700 relative rounded flex flex-col gap-4 p-[50px]">
+         <form  action="" className="bg-pink-700 relative rounded flex flex-col gap-4 p-[50px]">
           <HiXMark onClick={hideAgentForm} className="absolute top-0 right-0 text-slate-50 active:text-slate-900 text-[25px] font-bold "/>
             <h1 className="text-[20px] font-bold uppercase text-slate-100 ">Contact Agent</h1>
             <div className="flex flex-col">

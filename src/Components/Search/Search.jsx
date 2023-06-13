@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { HouseContext } from "../Context/HouseContext";
 import {FaBed, FaBath, FaMoneyCheckAlt} from 'react-icons/fa';
@@ -6,16 +6,18 @@ import {AiTwotoneCar} from 'react-icons/ai';
 import { MdSoupKitchen } from 'react-icons/md';
 import { HiLocationMarker } from 'react-icons/hi';
 import { Link, NavLink } from "react-router-dom";
-
+import Aos from "aos";
 export const SearchPage = () => {
      const {filteredSearch, getSearch, searchedText, viewHouse} = useContext(HouseContext);
-     
+     useEffect(() => {
+        Aos.init({duration: 2000})
+     }, [])
     return(
         <div className="py-[50px] min-h-[100vh] ">
             <div>
 {
     filteredSearch.length === 0 ?
-    <h1 className="text-center mt-[50px] uppercase font-bold  text-[30px] ">Search for house</h1>
+    <h1 data-aos='zoom-in' className="text-center mt-[50px] uppercase font-bold  text-[30px] ">Search for house</h1>
     :
     <div className="px-[20px] pt-[50px] py-[100px]">
         <p className="capitalize font-semibold text-center my-[20px] text-[20px]">"{filteredSearch.length}" Result found for {searchedText}</p>
@@ -23,7 +25,7 @@ export const SearchPage = () => {
         {
                 filteredSearch.map(property => {
                     return(
-                        <div className="shadow-2xl max-w-[400px] relative rounded  ">
+                        <div data-aos='zoom-in' className="shadow-2xl max-w-[400px] relative rounded  ">
                         <div className=" " ><img src={property.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>
                          <div className=" flex flex-col rounded-b  bg-white bottom-0 w-full gap-1">
                              <div className="flex flex-row px-2 py-1 justify-between">

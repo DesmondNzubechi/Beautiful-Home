@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import bgImg from '../../assets/images/houseH.avif';
 import { Link } from "react-router-dom";
-
+import Aos from "aos";
 
 
 
 export const Sell = () => {
+    useEffect(() => {
+        Aos.init({duration:2000});
+    })
     return(
         <div className="min-h-[100vh]">
 
@@ -13,7 +16,7 @@ export const Sell = () => {
         <div
     style={{ backgroundImage: `url(${bgImg})` }}
   className={`min-h-[50vh] relative after:left-0 after:right-0 after:absolute after:top-0 after:h-full bg-center flex items-center after:w-full after:bg-bgT pt-[50px]  px-[30px] bg-cover z-[1]  `}>
-    <div className="relative z-[1] py-[50px] max-w-[700px]">
+    <div data-aos='zoom-in' className="relative z-[1] py-[50px] max-w-[700px]">
     <h1 className="font-bold text-slate-50 text-[50px] ">Sell Home</h1>
 <p className="text-slate-200 font-fonty text-[17px] ">Trust Homebuilder for a seamless home selling experience. Our experts understand the local market, optimizing your listing price for maximum returns. We enhance your home's appeal, captivating buyers with stunning visuals and strategic staging. From marketing to negotiations, we handle it all. Sell your home with confidence and ease. Partner with Homebuilder today!</p>
     </div>
