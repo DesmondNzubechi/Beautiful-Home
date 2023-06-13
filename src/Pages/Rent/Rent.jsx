@@ -12,6 +12,7 @@ import { collection, doc,  getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useEffect } from "react";
 import { ref } from "firebase/storage";
+import Aos from "aos";
 
 export const RentHouse = () => {
     const  {viewHouse} = useContext(HouseContext);
@@ -20,6 +21,7 @@ export const RentHouse = () => {
 
     const dataStorage = collection(db, 'rent');
     useEffect(() => {
+        Aos.init({duration: 2000})
         const getHouses = async () => {
            try {
                const data = await getDocs(dataStorage);
@@ -36,10 +38,10 @@ export const RentHouse = () => {
     return(
         <div>
             
-        <div  data-aos='fade-up' aos-data-duration='2000'
+        <div  
     style={{ backgroundImage: `url(${bgImg})` }}
   className={`min-h-[50vh] relative after:left-0 after:right-0 after:absolute after:top-0 after:h-full bg-center flex items-center after:w-full after:bg-bgT pt-[50px]  px-[30px] bg-cover z-[1]  `}>
-    <div className="relative z-[1] py-[50px] max-w-[700px]">
+    <div data-aos='zoom-in'  className="relative z-[1] py-[50px] max-w-[700px]">
     <h1 className="font-bold text-slate-50 text-[50px] ">Rent Home</h1>
 <p className="text-slate-200 font-fonty text-[17px] ">Rental properties are typically managed by landlords or property management companies, which means you don't have to worry about maintenance and repairs. If something goes wrong, such as a plumbing issue or a broken appliance, you can simply contact the landlord or property manager to have it fixed.</p>
     </div>
@@ -50,7 +52,7 @@ export const RentHouse = () => {
             {
                 diffRentH.map(property => {
                     return(
-                        <div className="shadow-2xl max-w-[400px] relative rounded  ">
+                        <div data-aos='zoom-in-down' className="shadow-2xl max-w-[400px] relative rounded  ">
                             {console.log(property.pictures[3])}
                         <div className=" " ><img src={property.pictures[0]} alt="" className="rounded-t w-full md:h-[300px] " /></div>
                          <div className=" flex flex-col rounded-b  bg-white bottom-0 w-full gap-1">

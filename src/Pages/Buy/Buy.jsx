@@ -11,6 +11,7 @@ import { diffHouses } from "./BuyingHouse";
 import { collection, doc,  getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useEffect } from "react";
+import Aos from "aos";
 
 
 export const BuyHouse = () => {
@@ -20,6 +21,7 @@ export const BuyHouse = () => {
     const dataStorage = collection(db, 'buy');
 
     useEffect(() => {
+        Aos.init({duration: 2000})
         const getHouses = async () => {
            try {
                const data = await getDocs(dataStorage);
@@ -34,10 +36,10 @@ export const BuyHouse = () => {
        }, []);
     return(
         <div>
-            <div  data-aos='fade-up' aos-data-duration='2000'
+            <div  
         style={{ backgroundImage: `url(${bgImg})` }}
       className={`min-h-[50vh] relative after:left-0 after:right-0 after:absolute after:top-0 after:h-full bg-center flex items-center after:w-full after:bg-bgT pt-[50px]  px-[30px] bg-cover z-[1]  `}>
-        <div className="relative z-[1] py-[50px] max-w-[700px]">
+        <div data-aos='zoom-in-up' className="relative z-[1] py-[50px] max-w-[700px]">
         <h1 className="font-bold text-slate-50 text-[50px] ">Buy Home</h1>
 <p className="text-slate-200 font-fonty text-[17px] ">Homeownership often comes with a sense of pride and belonging to a neighborhood. You have the opportunity to engage with your neighbors, participate in local activities, and contribute to the overall well-being of the community.</p>
         </div>
@@ -48,7 +50,7 @@ export const BuyHouse = () => {
             {
                 diffHousesSell.map(property => {
                     return(
-                        <div className="shadow-2xl max-w-[400px] relative rounded  ">
+                        <div data-aos='zoom-in-up' className="shadow-2xl max-w-[400px] relative rounded  ">
                         <div className=" " ><img src={property.pictures[0]} alt="" className="rounded-t w-full md:h-[300px] " /></div>
                          <div className=" flex flex-col rounded-b  bg-white bottom-0 w-full gap-1">
                              <div className="flex flex-row px-2 py-1 justify-between">

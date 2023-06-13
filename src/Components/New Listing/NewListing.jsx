@@ -6,6 +6,9 @@ import { HiLocationMarker } from 'react-icons/hi';
 import { Link } from "react-router-dom";
 import { HouseContext } from "../Context/HouseContext";
 import { useContext } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 //importing images from house 1
 import firstNewImg1 from '../../assets/images/Buy/house1/img2.webp';
 import firstNewImg2 from '../../assets/images/Buy/house1/img2.webp';
@@ -139,11 +142,13 @@ const Listed = [
 ]
 
 export const NewListing = () => {
-     
+    useEffect(() => {
+        Aos.init({duration: 2000})
+     }, []);
     const  {viewHouse} = useContext(HouseContext);
     return(
         <div className="px-[20px] py-[50px]">
-            <div className="flex md:justify-start justify-center mb-[20px]  ">
+            <div data-aos='zoom-in' className="flex md:justify-start justify-center mb-[20px]  ">
                 <h1 className="uppercase border-b-[5px] rounded-[10px] p-1    md:text-start font-bold text-[30px] ">New listing</h1>
                
             </div>
@@ -151,7 +156,7 @@ export const NewListing = () => {
             {
                 Listed.map(property => {
                     return(
-                        <div className="shadow-2xl max-w-[400px] relative rounded  ">
+                        <div data-aos='zoom-in-up' className="shadow-2xl max-w-[400px] relative rounded  ">
                         <div className=" " ><img src={property.frontPic} alt="" className="rounded-t w-full md:h-[300px] " /></div>
                          <div className=" flex flex-col rounded-b  bg-white bottom-0 w-full gap-1">
                              <div className="flex flex-row px-2 py-1 justify-between">

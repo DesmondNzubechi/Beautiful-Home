@@ -7,6 +7,8 @@ import {collection,  getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase
 import { useContext } from "react";
 import { HouseContext } from "../Context/HouseContext";
 import {FaUserCircle, FaWarehouse} from 'react-icons/fa';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export const AdminDashboard = () => {
   const {newUser, signout, navig} = useContext(HouseContext);
@@ -32,6 +34,10 @@ export const AdminDashboard = () => {
       setSelectImgFolder(e.target.value);
   }
 */
+//animation on scroll
+useEffect(() => {
+  Aos.init({duration: 2000})
+}, []);
 
 
  
@@ -149,16 +155,16 @@ export const AdminDashboard = () => {
      <button onClick={signout} className='shadow-2xl text-slate-50 uppercase py-1 rounded shadow-2xl text-[20px] bg-slate-500 p-2 '>Logout</button>
        </div>  }
     </div>*/}
-        <h1 className="text-start font-bold uppercase text-white underline md:text-[20px] text-[17px] lg:text-[25px] mb-[60px] ">Upload property information!</h1>
+        <h1 data-aos='zoom-in-down' className="text-start font-bold uppercase text-white underline md:text-[20px] text-[17px] lg:text-[25px] mb-[60px] ">Upload property information!</h1>
     <div className="   min-h-[100vh]   items-start gap-5 flex flex-col md:flex-row justify-around">
       
-    <div className="  grid md:grid-cols-2 gap-2  w-full ">
+    <div data-aos='zoom-in-down' className="  grid md:grid-cols-2 gap-2  w-full ">
    
     {/*   <div>
         <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="propertyImg">Image Folder:</label>
         <input  onBlur={(e) => getHouseImgFolder(e)} className="bg-slate-100 p-2 border-slate-200 outline-0 border file:border-0 file:bg-transparent rounded w-full " type="text" name="" id="" />
       </div>*/}
-      <div className="md:col-span-2  flex gap-1 flex-col">
+      <div  className="md:col-span-2  flex gap-1 flex-col">
        <div className="flex flex-row  items-end gap-5">
         <div className="w-full">
         <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="propertyImg">Image:</label>
@@ -235,7 +241,7 @@ export const AdminDashboard = () => {
        </div>
     </div>
    
-    <div className="flex flex-col w-full  md:h-full items-start gap-0">
+    <div data-aos='zoom-in-down' className="flex flex-col w-full  md:h-full items-start gap-0">
         <label className="text-slate-200 font-semibol uppercase text-[15px] " htmlFor="Kitchen">Full Description:</label>
        <textarea onChange={
         (e) => setNewHouse({...newHouse, fullDescr : e.target.value})
