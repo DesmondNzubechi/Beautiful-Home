@@ -6,15 +6,20 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { HouseContext } from "../Context/HouseContext";
 import Aos from "aos";
+import { BounceLoader } from "react-spinners";
+import { useState } from "react";
 
 export const Login = () => {
-
+    const [spinnerJs, setSpinnerJs] = useState(false);
     const {signin, inputs, setInputs} = useContext(HouseContext);
 useEffect(() => {
     Aos.init({duration: 2000});
 })
     return(
         <div className="py-[150px] px-[20px]  ">
+             { spinnerJs &&  <div className="fixed bg-Tp w-full z-[500] left-0 right-0 flex justify-center h-full top-0 bottom-0 items-center"><BounceLoader color="#ffb700"
+           size={100}
+            /></div> }
             <div className="flex flex-row justify-center">
              <div data-aos='zoom-in' className="bg-slate-900 md:px-[70px]  flex flex-col  p-[20px] rounded shadow-2xl">
               <div>
@@ -31,7 +36,10 @@ useEffect(() => {
                     <label htmlFor="password" className="flex font-semibold items-center text-slate-900 text-[15px] "><RiLockPasswordFill/>Password</label>
                         <input onChange={(e) => setInputs({...inputs, signInpassword: e.target.value})} required value={inputs.password} type="password" placeholder="******"  className="p-3 rounded outline-0 w-full shadow "/>
                     </div>
-                  <button type="button" onClick={signin} className="bg-green-500 rounded text-[17px] font-semibold p-3">Login</button>
+                  <button type="button" onClick={() => {
+                    setSpinnerJs(true);
+                    signin();
+                    }} className="bg-green-500 rounded text-[17px] font-semibold p-3">Login</button>
                   <p className="text-center text-[17px] text-slate-100 ">Don't have account yet? <Link to='/signup' className="text-pink-500 uppercase font-bold">Sign Up</Link></p>
                 </form>
              </div>
