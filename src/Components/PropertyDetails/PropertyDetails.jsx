@@ -19,6 +19,7 @@ export const PropertyDetails = () => {
     const [currentImg, setCurrentImg] = useState(0);
      let broadImg;
     let imgLength;
+    
     houseFeatures.forEach(img => {
         imgLength = img.pictures.length;
         broadImg = img.pictures[currentImg];

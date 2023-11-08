@@ -38,9 +38,6 @@ export const AdminDashboard = () => {
 useEffect(() => {
   Aos.init({duration: 2000})
 }, []);
-
-
- 
      const UploadImg = () => {
       if (newImgs.length <= 0) {
         alert('Please Select Image To Be Uploaded');
@@ -49,7 +46,7 @@ useEffect(() => {
       if (imgFolder == '') {
         alert('You Forgot To Input Image Folder Name');
         return;
-      }
+      } 
         const folderRef = ref(storage, imgFolder);
         listAll(folderRef)
           .then((folderSnapshot) => {
@@ -69,7 +66,6 @@ useEffect(() => {
                       setImgList((prev) => [...prev, url]);
                   })
               })
-          
              });
              setNewHouse({...newHouse, pictures: imgList});
             alert('Image uploaded succesful, You can also more image if you still have more image!');

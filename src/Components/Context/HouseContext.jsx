@@ -66,13 +66,6 @@ export const HousesDetails = (props) => {
            
        }
    }
-
-
-
-
-
-
-
              const buyRent = [...diffHouses, ...diffRent];
              const [filteredSearch, setFilteredSearch] = useState([]);
              const [searchedText, setSearchedText] = useState('');
@@ -84,8 +77,7 @@ export const HousesDetails = (props) => {
              const viewHouse = (property) => {
                 setHouseFeatures([property]);
              }
-             const getSearch = (e) => {
-                   
+            const getSearch = (e) => { 
             const searching = e.target.value;
                if (searching !== '') {
                   const searchResult = buyRent.filter(filtered => (
